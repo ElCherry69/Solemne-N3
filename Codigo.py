@@ -53,5 +53,3 @@ with st.sidebar:
         else:
             st.write("No se encontraron resultados para el término de búsqueda.")
 
-else:
-    st.write("Introduce un término de búsqueda para ver los resultados.")
