@@ -17,7 +17,7 @@ with st.sidebar:
         div = st.slider('Número de bins:', 0, 10, 2)
         st.write('Bins =', div)
 
-competition_options = ['Balón de Oro', 'Champions League', 'Copa del Mundo']
+   competition_options = ['Balón de Oro', 'Champions League', 'Copa del Mundo']
         selected_competition = st.selectbox('Selecciona el tipo de competición:', competition_options)
 
         # Filtrar los datos según la competición seleccionada
