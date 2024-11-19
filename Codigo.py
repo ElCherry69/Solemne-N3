@@ -39,6 +39,3 @@ with st.sidebar:
             st.dataframe(filtered_data)
         else:
             st.write("Introduce un término de búsqueda para ver los resultados.")
-
-else:
-    st.error("No se ha cargado ningún archivo CSV.")
