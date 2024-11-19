@@ -11,7 +11,7 @@ with st.sidebar:
         
         div = st.slider('Número de bins:', 0, 10, 2)
         st.write('Bins =', div)
-        if 'Tipo de Competición' in competitions_data.columns:
+ if 'Tipo de Competición' in competitions_data.columns:
         competition_types = competitions_data['Tipo de Competición'].unique()  # Obtener tipos únicos de competición
         selected_competition = st.selectbox('Selecciona el tipo de competición:', competition_types)
 
