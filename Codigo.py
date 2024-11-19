@@ -11,7 +11,7 @@ file_path = 'competitions.csv'  # Cambia esto a la ruta correcta si es necesario
 if os.path.exists(file_path):
     competitions_data = pd.read_csv(file_path)
 
-    # Verificar las columnas del DataFrame
+    # Imprimir las columnas del DataFrame
     st.write("Columnas disponibles en el archivo:", competitions_data.columns.tolist())
 
     with st.sidebar:
