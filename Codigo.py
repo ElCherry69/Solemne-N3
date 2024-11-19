@@ -10,11 +10,12 @@ st.write("Introduce un término de búsqueda para encontrar información.")
 search_term = st.text_input("¿Qué estás buscando?")
 
 # Simulación de datos (puedes reemplazar esto con tus propios datos)
-data = {
-    "Fútbol": ["Lionel Messi", "Cristiano Ronaldo", "Neymar Jr", "Kylian Mbappé"],
-    "Balón de Oro": ["Lionel Messi", "Cristiano Ronaldo", "Johan Cruyff"],
-    "Copa del Mundo": ["Brasil", "Alemania", "Italia", "Argentina"],
-}
+data =[
+    'UCL_AllTime_Performance_Table.csv',
+    'BallonDor-GoldenBall_Winners_v2.csv',
+    'FIFA - World Cup Summary.csv',
+    'UCL_Finals_1955-2023.csv'
+]
 
 # Función para buscar en los datos
 def search_data(term):
