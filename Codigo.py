@@ -1,39 +1,14 @@
 import streamlit as st
 
-# Título de la aplicación
-st.title("Buscador Simple")
+st.title("FUSHIBALL")
 
-# Descripción de la aplicación
-st.write("Introduce un término de búsqueda para encontrar información.")
+with st.sidebar: import streamlit as st
 
-# Cuadro de texto para buscar
-search_term = st.text_input("¿Qué estás buscando?")
-
-# Simulación de datos (puedes reemplazar esto con tus propios datos)
-data =[
-    'UCL_AllTime_Performance_Table.csv',
-    'BallonDor-GoldenBall_Winners_v2.csv',
-    'FIFA - World Cup Summary.csv',
-    'UCL_Finals_1955-2023.csv'
-]
-
-# Función para buscar en los datos
-def search_data(term):
-    results = {}
-    for category, items in data.items():
-        filtered_items = [item for item in items if term.lower() in item.lower()]
-        if filtered_items:
-            results[category] = filtered_items
-    return results
-
-# Realizar la búsqueda si hay un término
-if search_term:
-    results = search_data(search_term)
-
-    # Mostrar los resultados
-    if results:
-        st.write("Resultados de la búsqueda:")
-        for category, items in results.items():
-            st.write(f"**{category}:** {', '.join(items)}")
-    else:
-        st.write("No se encontraron resultados para el término de búsqueda.")
+    with st.expander("SOBRE QUÉ", expanded=False):
+        st.write(('Esta aplicación se basa en la cultura del fútbol y un poco del conocimiento que se tiene hasta la fecha sobre él. '
+                   'Hablándoles un poco sobre estadísticas de grandes equipos, jugadores que han logrado alzar el Balón de Oro y '
+                   'países que levantaron la copa más preciada del mundo "La Copa del Mundo".'))
+        
+        
+        div = st.slider('Número de bins:', 0, 10, 2)
+        st.write('Bins =', div)
