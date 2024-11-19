@@ -11,13 +11,15 @@ with st.sidebar:
         
         div = st.slider('Número de bins:', 0, 10, 2)
         st.write('Bins =', div)
+        if 'Tipo de Competición' in competitions_data.columns:
+        competition_types = competitions_data['Tipo de Competición'].unique()  # Obtener tipos únicos de competición
+        selected_competition = st.selectbox('Selecciona el tipo de competición:', competition_types)
 
-competition_types = competitions_data['Tipo de Competición'].unique()  # Asegúrate de que esta columna exista en tu CSV
-    selected_competition = st.selectbox('Selecciona el tipo de competición:', competition_types)
+        # Filtrar los datos según la competición seleccionada
+        filtered_data = competitions_data[competitions_data['Tipo de Competición'] == selected_competition]
 
-    
-    filtered_data = competitions_data[competitions_data['Tipo de Competición'] == selected_competition]
-
-    
-    st.write('Resultados para la competición seleccionada:')
-    st.dataframe(filtered_data)
+        # Mostrar los resultados filtrados
+        st.write('Resultados para la competición seleccionada:')
+        st.dataframe(filtered_data)
+    else:
+        st.error("La columna 'Tipo de Competición' no se encuentra en el archivo CSV.")
