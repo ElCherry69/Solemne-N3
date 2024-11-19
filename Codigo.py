@@ -11,3 +11,13 @@ with st.sidebar:
         
         div = st.slider('Número de bins:', 0, 10, 2)
         st.write('Bins =', div)
+
+competition_types = competitions_data['Tipo de Competición'].unique()  # Asegúrate de que esta columna exista en tu CSV
+    selected_competition = st.selectbox('Selecciona el tipo de competición:', competition_types)
+
+    
+    filtered_data = competitions_data[competitions_data['Tipo de Competición'] == selected_competition]
+
+    
+    st.write('Resultados para la competición seleccionada:')
+    st.dataframe(filtered_data)
