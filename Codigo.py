@@ -22,7 +22,7 @@ with st.sidebar:
         'UCL_AllTime_Performance_Table.csv',
         'BallonDor-GoldenBall_Winners_v2.csv',
         'FIFA - World Cup Summary.csv',
-        'UCL_Finals_1955-2023.csv'
+        'UCL_Finals_1955-2023 - UCL_Finals_1955-2023.csv'
     ]
 
     # Cargar todos los archivos CSV en un diccionario
