@@ -22,17 +22,3 @@ if os.path.exists(file_path):
             
             div = st.slider('Número de bins:', 0, 10, 2)
             st.write('Bins =', div)
-
-        # Añadir un selectbox para buscar por tipo de competición
-        competition_options = ['Balón de Oro', 'Champions League', 'Copa del Mundo']
-        selected_competition = st.selectbox('Selecciona el tipo de competición:', competition_options)
-
-        # Filtrar los datos según la competición seleccionada
-        filtered_data = competitions_data[competitions_data['Tipo de Competición'] == selected_competition]
-
-        # Mostrar los resultados filtrados
-        st.write('Resultados para la competición seleccionada:')
-        st.dataframe(filtered_data)
-
-else:
-    st.error("El archivo 'competitions.csv' no se encuentra en la ruta especificada.")
