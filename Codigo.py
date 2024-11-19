@@ -19,7 +19,7 @@ with st.sidebar:
 
     # Lista de archivos CSV
     csv_files = [
-        'UCL_AllTime_Performance_Table.csv',
+        'UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv',
         'BallonDor-GoldenBall_Winners_v2.csv',
         'FIFA - World Cup Summary.csv',
         'UCL_Finals_1955-2023 - UCL_Finals_1955-2023.csv'
