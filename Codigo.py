@@ -39,13 +39,20 @@ if search_title:
            
             if title == "UCL Finals":
                 team_name = search_title
-                # Filtrar los datos para el equipo buscado
-                team_data = result[result['Team'].str.contains(team_name, case=False)]
+                
+                Winners_data = result[result['Winners'].str.contains(Winners_name, case=False)]
                 
                 if not team_data.empty:
                 
-                    team_data['Year'] = team_data['Season'].str.split('/').str[0].astype(int)  # Extraer el año
-                    
-                    fig = px.line(team_data, x='Year', y='Score', title=f'Rendimiento de {team_name} en UCL Finals', markers=True)
-                    fig.update_layout(xaxis_title='Año', yaxis_title='Goles')
-                    st.plotly_chart(fig)
+                    team_data['Year'] = team_data['Season'].str.split('/').str[0].astype(int)
+                    plt.figure(figsize=(10, 5))
+54                    plt.plot(team_data['Year'], team_data['Score'], marker='o')
+55                    plt.title(f'Rendimiento de {team_name} en UCL Finals')
+56                    plt.xlabel('Año')
+57                    plt.ylabel('Goles')
+58                    plt.xticks(rotation=45)
+59                    plt.grid()
+60                    
+61                    # Mostrar el gráfico en Streamlit
+62                    st.pyplot(plt)
+63                    plt.clf()
