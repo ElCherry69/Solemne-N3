@@ -1,16 +1,13 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
 st.title("FUSHIBALL")
 
-# Cargar los datos
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
 ucl_data = pd.read_csv('UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv')
 ucl_finals_data = pd.read_csv('UCL_Finals_1955-2023 - UCL_Finals_1955-2023.csv')
 
-# Sidebar
 with st.sidebar:
     with st.expander("SOBRE QUÉ", expanded=False):
         st.write(('Esta aplicación se basa en la cultura del fútbol y un poco del conocimiento que se tiene hasta la fecha sobre él. '
@@ -39,21 +36,16 @@ if search_title:
             st.subheader(title)
             st.dataframe(result)
 
-            
+           
             if title == "UCL Finals":
                 team_name = search_title
-            
-                team_data = result[result['Winners'].str.contains(team_name, case=False)]
+                # Filtrar los datos para el equipo buscado
+                team_data = result[result['Team'].str.contains(team_name, case=False)]
                 
                 if not team_data.empty:
-                    team_data['Season'] = pd.to_datetime(team_data['Season'], format='%Y').dt.Season
+                
+                    team_data['Year'] = team_data['Season'].str.split('/').str[0].astype(int)  # Extraer el año
                     
-                    plt.figure(figsize=(10, 5))
-                    plt.plot(Winners_data['Season'], team_data['Score'], marker='o')
-                    plt.title(f'Rendimiento de {Winners_name} en UCL Finals')
-                    plt.xlabel('Año')
-                    plt.ylabel('Goles')
-                    plt.xticks(rotation=45)
-                    plt.grid()
-                    st.pyplot(plt)
-                    plt.clf()
+                    fig = px.line(team_data, x='Year', y='Score', title=f'Rendimiento de {team_name} en UCL Finals', markers=True)
+                    fig.update_layout(xaxis_title='Año', yaxis_title='Goles')
+                    st.plotly_chart(fig)
