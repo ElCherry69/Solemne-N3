@@ -47,8 +47,8 @@ if search_title:
                 Winners_data = result[result['Winners'].str.contains(team_name, case=False)]
                 
                 if not Winners_data.empty:
-                    # Extraer el año
-                    Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].astype(int)
+                    # Limpiar la columna 'Season' y extraer el año
+                    Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].str.replace('–', '-').astype(int)  # Reemplazar el guion largo por un guion normal
                     
                     # Crear el gráfico
                     plt.figure(figsize=(10, 5))
