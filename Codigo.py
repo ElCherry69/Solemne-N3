@@ -44,9 +44,9 @@ if search_title:
                 
                 if not team_data.empty:
                 
-                    team_data['Year'] = team_data['Season'].str.split('/').str[0].astype(int)
+                    team_data['Year'] = Winners_data['Season'].str.split('/').str[0].astype(int)
                     plt.figure(figsize=(10, 5))
-54                    plt.plot(team_data['Year'], team_data['Score'], marker='o')
+54                    plt.plot(Winners_data['Year'], team_data['Score'], marker='o')
 55                    plt.title(f'Rendimiento de {team_name} en UCL Finals')
 56                    plt.xlabel('Año')
 57                    plt.ylabel('Goles')
