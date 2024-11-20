@@ -19,3 +19,21 @@ with st.sidebar:
 
     st.sidebar.header("Opciones de Filtro")
     search_title = st.sidebar.text_input("Jugador, País o Competición")
+
+def search_data(query):
+    results = {
+        "Balón de Oro": ballon_dor_data[ballon_dor_data.apply(lambda row: row.astype(str).str.contains(query, case=False).any(), axis=1)],
+        "Copa del Mundo": world_cup_data[world_cup_data.apply(lambda row: row.astype(str).str.contains(query, case=False).any(), axis=1)],
+        "UCL All-Time": ucl_data[ucl_data.apply(lambda row: row.astype(str).str.contains(query, case=False).any(), axis=1)],
+        "UCL Finals": ucl_finals_data[ucl_finals_data.apply(lambda row: row.astype(str).str.contains(query, case=False).any(), axis=1)],
+    }
+    return results
+
+if search_title:
+    results = search_data(search_title)
+    for title, result in results.items():
+        if not result.empty:
+            st.subheader(title)
+            st.dataframe(result)
+        else:
+            st.write(f"No se encontraron resultados en {title} para '{search_title}'.")
