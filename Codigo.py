@@ -4,11 +4,13 @@ import matplotlib.pyplot as plt
 
 st.title("FUSHIBALL")
 
+# Cargar los datos
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
 ucl_data = pd.read_csv('UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv')
 ucl_finals_data = pd.read_csv('UCL_Finals_1955-2023 - UCL_Finals_1955-2023.csv')
 
+# Sidebar
 with st.sidebar:
     with st.expander("SOBRE QUÉ", expanded=False):
         st.write(('Esta aplicación se basa en la cultura del fútbol y un poco del conocimiento que se tiene hasta la fecha sobre él. '
@@ -37,20 +39,25 @@ if search_title:
             st.subheader(title)
             st.dataframe(result)
 
-
+            # Si se busca en "UCL Finals", genera un gráfico de líneas
             if title == "UCL Finals":
                 team_name = search_title
-            
+                # Filtrar los datos para el equipo buscado
                 team_data = result[result['Team'].str.contains(team_name, case=False)]
                 
                 if not team_data.empty:
-                  
-                    team_data['Season'] = pd.to_datetime(team_data['Season'], format='%Y').dt.Season
+                    # Suponiendo que hay una columna 'Year' y 'Score' en el DataFrame de finales
+                    team_data['Year'] = pd.to_datetime(team_data['Year'], format='%Y').dt.year
+                    
+                    # Crear el gráfico de líneas
                     plt.figure(figsize=(10, 5))
-                    plt.plot(team_data['Season'], team_data['Score'], marker='o')
+                    plt.plot(team_data['Year'], team_data['Score'], marker='o')
                     plt.title(f'Rendimiento de {team_name} en UCL Finals')
                     plt.xlabel('Año')
                     plt.ylabel('Goles')
                     plt.xticks(rotation=45)
                     plt.grid()
+                    
+                    # Mostrar el gráfico en Streamlit
                     st.pyplot(plt)
+                    plt.clf()  # Limpiar la figura para evitar superposiciones en futuros gráficos
