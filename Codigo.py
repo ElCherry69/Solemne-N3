@@ -19,7 +19,3 @@ with st.sidebar:
 
     st.sidebar.header("Opciones de Filtro")
     search_title = st.sidebar.text_input("Jugador, País o Competición")
-
-if search_title:
-    filtered_competitions = competitions_data[competitions_data['column_name'].str.contains(search_title, case=False)]
-    st.write(filtered_competitions)
