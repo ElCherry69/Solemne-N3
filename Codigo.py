@@ -43,14 +43,14 @@ if search_title:
             if title == "UCL Finals":
                 team_name = search_title
             
-                team_data = result[result['Team'].str.contains(team_name, case=False)]
+                team_data = result[result['Winners'].str.contains(team_name, case=False)]
                 
                 if not team_data.empty:
                     team_data['Season'] = pd.to_datetime(team_data['Season'], format='%Y').dt.Season
                     
                     plt.figure(figsize=(10, 5))
-                    plt.plot(team_data['Season'], team_data['Score'], marker='o')
-                    plt.title(f'Rendimiento de {team_name} en UCL Finals')
+                    plt.plot(Winners_data['Season'], team_data['Score'], marker='o')
+                    plt.title(f'Rendimiento de {Winners_name} en UCL Finals')
                     plt.xlabel('Año')
                     plt.ylabel('Goles')
                     plt.xticks(rotation=45)
