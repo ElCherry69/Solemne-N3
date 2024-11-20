@@ -3,7 +3,6 @@ import pandas as pd
 
 st.title("FUSHIBALL")
 
-competitions_data = pd.read_csv('competitions.csv')
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
 ucl_data = pd.read_csv('UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv')
