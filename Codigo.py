@@ -48,11 +48,17 @@ if search_title:
                 
                 if not Winners_data.empty:
                     # Limpiar la columna 'Season' y extraer el año
-                    Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].str.replace('–', '-').astype(int)  # Reemplazar el guion largo por un guion normal
+                    Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].str.replace('–', '-').str.strip()
+                    
+                    # Convertir a numérico, convirtiendo errores a NaN
+                    Winners_data['Year'] = pd.to_numeric(Winners_data['Year'], errors='coerce')
+                    
+                    # Eliminar filas con NaN en 'Year'
+                    Winners_data = Winners_data.dropna(subset=['Year'])
                     
                     # Crear el gráfico
                     plt.figure(figsize=(10, 5))
-                    plt.plot(Winners_data['Year'], Winners_data['Score'], marker='o')  # Cambiado team_data por Winners_data
+                    plt.plot(Winners_data['Year'], Winners_data['Score'], marker='o')
                     plt.title(f'Rendimiento de {team_name} en UCL Finals')
                     plt.xlabel('Año')
                     plt.ylabel('Goles')
