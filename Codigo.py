@@ -35,4 +35,4 @@ if search_title:
         if not result.empty:
             st.subheader(title)
             st.dataframe(result)
-       
+            
