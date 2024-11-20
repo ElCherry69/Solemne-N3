@@ -13,3 +13,4 @@ with st.sidebar:
         
         div = st.slider('Número de bins:', 0, 10, 2)
         st.write('Bins =', div)
+data = pd.read_csv('data.csv')
