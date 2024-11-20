@@ -14,4 +14,5 @@ with st.sidebar:
         div = st.slider('Número de bins:', 0, 10, 2)
         st.write('Bins =', div)
 data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv','FIFA - World Cup Summary.csv', 'UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv', 'UCL_Finals_1955-2023 - UCL_Finals_1955-2023.csv')
-
+st.sidebar.header("Opciones de Filtro")
+search_title = st.sidebar.text_input("Jugador, Pais o Competición")
