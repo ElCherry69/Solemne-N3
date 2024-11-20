@@ -39,25 +39,21 @@ if search_title:
             st.subheader(title)
             st.dataframe(result)
 
-            # Si se busca en "UCL Finals", genera un gráfico de líneas
+            
             if title == "UCL Finals":
                 team_name = search_title
-                # Filtrar los datos para el equipo buscado
+            
                 team_data = result[result['Team'].str.contains(team_name, case=False)]
                 
                 if not team_data.empty:
-                    # Suponiendo que hay una columna 'Year' y 'Score' en el DataFrame de finales
-                    team_data['Year'] = pd.to_datetime(team_data['Year'], format='%Y').dt.year
+                    team_data['Season'] = pd.to_datetime(team_data['Season'], format='%Y').dt.Season
                     
-                    # Crear el gráfico de líneas
                     plt.figure(figsize=(10, 5))
-                    plt.plot(team_data['Year'], team_data['Score'], marker='o')
+                    plt.plot(team_data['Season'], team_data['Score'], marker='o')
                     plt.title(f'Rendimiento de {team_name} en UCL Finals')
                     plt.xlabel('Año')
                     plt.ylabel('Goles')
                     plt.xticks(rotation=45)
                     plt.grid()
-                    
-                    # Mostrar el gráfico en Streamlit
                     st.pyplot(plt)
-                    plt.clf()  # Limpiar la figura para evitar superposiciones en futuros gráficos
+                    plt.clf()
