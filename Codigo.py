@@ -35,5 +35,4 @@ if search_title:
         if not result.empty:
             st.subheader(title)
             st.dataframe(result)
-        else:
-            st.write(f"No se encontraron resultados en {title} para '{search_title}'.")
+       
