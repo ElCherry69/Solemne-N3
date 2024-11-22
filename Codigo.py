@@ -22,7 +22,7 @@ def set_background_image(image_url):
     )
 
 # Llama a la función con la URL de la imagen
-set_background_image('https://w0.peakpx.com/wallpaper/88/406/HD-wallpaper-cristiano-ronaldo-cr7-euro-2024-portugal-vs-slovenia.jpg')
+set_background_image('https://w0.peakpx.com/wallpaper/172/859/HD-wallpaper-uefa-champions-league-background-estadio-de-futbol-papel-tapiz-deportivo-fondo-de-pantalla-futbol-soccer-pitch.jpg')
 
 # Carga de datos
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
