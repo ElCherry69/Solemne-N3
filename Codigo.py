@@ -61,7 +61,7 @@ if search_title:
                     plt.xticks(rotation=45)
                     plt.grid()
                     div = st.slider('Número de bins:', 0, 10, 2)
-        st.write('Bins =', div)
+                    st.write('Bins =', div)
                 
                     st.pyplot(plt)
                     plt.clf()
