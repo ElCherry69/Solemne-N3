@@ -4,23 +4,27 @@ import matplotlib.pyplot as plt
 
 st.title("FUSHIBALL")
 
+# Función para establecer una imagen de fondo centrada
 def set_background_image(image_url):
     st.markdown(
         f"""
         <style>
         .stApp {{
             background-image: url({image_url});
-            background-size: cover;
-            background-position: center;
+            background-size: cover;  /* Ajusta la imagen para cubrir todo el fondo */
+            background-position: center;  /* Centra la imagen */
+            background-repeat: no-repeat;  /* Evita que la imagen se repita */
+            height: 100vh;  /* Altura del contenedor */
         }}
         </style>
         """,
         unsafe_allow_html=True
     )
 
-set_background_image('https%3A%2F%2Fwww.peakpx.com%2Fen%2Fhd-wallpaper-desktop-whrwu&psig=AOvVaw1viRxsy1z70N3lb-bw7a20&ust=1732373201597000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCqoJuW8IkDFQAAAAAdAAAAABAE')
+# Llama a la función con la URL de la imagen
+set_background_image('https://w0.peakpx.com/wallpaper/88/406/HD-wallpaper-cristiano-ronaldo-cr7-euro-2024-portugal-vs-slovenia.jpg')
 
-
+# Carga de datos
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
 ucl_data = pd.read_csv('UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv')
@@ -32,8 +36,6 @@ with st.sidebar:
                    'Hablándoles un poco sobre estadísticas de grandes equipos, jugadores que han logrado alzar el Balón de Oro y '
                    'países que levantaron la copa más preciada del mundo "La Copa del Mundo".'))
         
-        
-
     st.sidebar.header("Opciones de Filtro")
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
@@ -53,21 +55,14 @@ if search_title:
             st.subheader(title)
             st.dataframe(result)
 
-           
             if title == "UCL Finals":
                 team_name = search_title
-                
                 
                 Winners_data = result[result['Winners'].str.contains(team_name, case=False)]
                 
                 if not Winners_data.empty:
-                  
                     Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].str.replace('–', '-').str.strip()
-                    
-                  
                     Winners_data['Year'] = pd.to_numeric(Winners_data['Year'], errors='coerce')
-                    
-                
                     Winners_data = Winners_data.dropna(subset=['Year'])
                     
                     plt.figure(figsize=(10, 5))
@@ -78,6 +73,5 @@ if search_title:
                     plt.xticks(rotation=45)
                     plt.grid()
                     
-                
                     st.pyplot(plt)
                     plt.clf()
