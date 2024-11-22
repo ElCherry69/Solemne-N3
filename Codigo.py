@@ -18,7 +18,7 @@ with st.sidebar:
         
 
     st.sidebar.header("Opciones de Filtro")
-    search_title = st.sidebar.text_input("Jugador, País o Competición")
+    search_title = st.sidebar.text_input("Jugador o Pais")
 
 def search_data(query):
     results = {
