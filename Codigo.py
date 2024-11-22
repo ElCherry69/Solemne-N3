@@ -18,7 +18,7 @@ def set_background_image(image_url):
         unsafe_allow_html=True
     )
 
-set_background_image('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.peakpx.com%2Fen%2Fhd-wallpaper-desktop-whrwh&psig=AOvVaw2DjV-twIM6opRiKXP0fj9Q&ust=1732371284629000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCJi38_-O8IkDFQAAAAAdAAAAABAj')
+set_background_image('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.peakpx.com%2Fen%2Fhd-wallpaper-desktop-whrwu&psig=AOvVaw1viRxsy1z70N3lb-bw7a20&ust=1732373201597000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPCqoJuW8IkDFQAAAAAdAAAAABAE')
 
 
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
