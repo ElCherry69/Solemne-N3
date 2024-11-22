@@ -4,23 +4,6 @@ import matplotlib.pyplot as plt
 
 st.title("FUSHIBALL")
 
-def set_background_image(image_path):
-    st.markdown(
-        f"""
-        <style>
-        .stApp {{
-            background-image: url({image_path});
-            background-size: cover;
-            background-position: center;
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-set_background_image('"C:\Users\Lab304\Downloads\304396023_384001700575715_6546128646416668997.jpg"')
-
-
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
 ucl_data = pd.read_csv('UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv')
