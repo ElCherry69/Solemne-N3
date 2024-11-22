@@ -38,22 +38,29 @@ with st.sidebar:
     st.sidebar.header("Opciones de Filtro")
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
+# Inicializar el estado del juego
+if 'game_started' not in st.session_state:
+    st.session_state.game_started = False
+
+if 'secret_number' not in st.session_state:
+    st.session_state.secret_number = None
+
 # Botón para iniciar el mini-juego
 if st.sidebar.button("Jugar Adivina el Número"):
+    st.session_state.game_started = True
+    st.session_state.secret_number = random.randint(1, 10)  # Generar un número aleatorio
     st.sidebar.write("¡Bienvenido al juego! Adivina un número entre 1 y 10.")
-    
-    # Generar un número aleatorio
-    secret_number = random.randint(1, 10)
-    
+
+if st.session_state.game_started:
     # Input del usuario
     user_guess = st.sidebar.number_input("Ingresa tu adivinanza:", min_value=1, max_value=10)
-    
+
     # Botón para verificar la adivinanza
     if st.sidebar.button("Verificar"):
-        if user_guess == secret_number:
+        if user_guess == st.session_state.secret_number:
             st.sidebar.success("¡Correcto! Adivinaste el número.")
         else:
-            st.sidebar.error(f"Incorrecto. El número era {secret_number}.")
+            st.sidebar.error(f"Incorrecto. El número era {st.session_state.secret_number}.")
 
 def search_data(query):
     results = {
@@ -78,8 +85,4 @@ if search_title:
                 
                 if not Winners_data.empty:
                     Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].str.replace('–', '-').str.strip()
-                    Winners_data['Year'] = pd.to_numeric(Winners_data['Year'], errors='coerce')
-                    Winners_data = Winners_data.dropna(subset=['Year'])
-                    
-                    plt.figure(figsize=(10, 5))
-                   
+                    Winners_data['Year'] = pd.to_numeric(Winners_data['Year'],
