@@ -4,21 +4,18 @@ import matplotlib.pyplot as plt
 
 st.title("FUSHIBALL")
 
-# Cargar los datos
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
 ucl_data = pd.read_csv('UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv')
 ucl_finals_data = pd.read_csv('UCL_Finals_1955-2023 - UCL_Finals_1955-2023.csv')
 
-# Sidebar
 with st.sidebar:
     with st.expander("SOBRE QUÉ", expanded=False):
         st.write(('Esta aplicación se basa en la cultura del fútbol y un poco del conocimiento que se tiene hasta la fecha sobre él. '
                    'Hablándoles un poco sobre estadísticas de grandes equipos, jugadores que han logrado alzar el Balón de Oro y '
                    'países que levantaron la copa más preciada del mundo "La Copa del Mundo".'))
         
-        div = st.slider('Número de bins:', 0, 10, 2)
-        st.write('Bins =', div)
+        
 
     st.sidebar.header("Opciones de Filtro")
     search_title = st.sidebar.text_input("Jugador, País o Competición")
@@ -39,24 +36,23 @@ if search_title:
             st.subheader(title)
             st.dataframe(result)
 
-            # Si se busca en "UCL Finals", genera un gráfico de líneas
+           
             if title == "UCL Finals":
                 team_name = search_title
                 
-                # Filtrar los datos para el equipo buscado
+                
                 Winners_data = result[result['Winners'].str.contains(team_name, case=False)]
                 
                 if not Winners_data.empty:
-                    # Limpiar la columna 'Season' y extraer el año
+                  
                     Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].str.replace('–', '-').str.strip()
                     
-                    # Convertir a numérico, convirtiendo errores a NaN
+                  
                     Winners_data['Year'] = pd.to_numeric(Winners_data['Year'], errors='coerce')
                     
-                    # Eliminar filas con NaN en 'Year'
+                
                     Winners_data = Winners_data.dropna(subset=['Year'])
                     
-                    # Crear el gráfico
                     plt.figure(figsize=(10, 5))
                     plt.plot(Winners_data['Year'], Winners_data['Score'], marker='o')
                     plt.title(f'Rendimiento de {team_name} en UCL Finals')
@@ -65,6 +61,6 @@ if search_title:
                     plt.xticks(rotation=45)
                     plt.grid()
                     
-                    # Mostrar el gráfico en Streamlit
+                
                     st.pyplot(plt)
-                    plt.clf()  # Limpiar la figura para la próxima visualización
+                    plt.clf()
