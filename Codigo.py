@@ -19,7 +19,7 @@ def set_background_image(image_url):
     )
 
 set_background_image('https://scontent-scl2-1.xx.fbcdn.net/v/t39.30808-6/304396023_384001700575715_6546128646416668997_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=awfZIhjeinQQ7kNvgHeMhiO&_nc_zt=23&_nc_ht=scontent-scl2-1.xx&_nc_gid=AuSM4kanN8AkcLA4bN6XOEy&oh=00_AYD6UuY3XHDeULQC9kKSy4gZkJYAsagHluxbXmoI5dfsyA&oe=67467B43')
-
+st.title("Mi Aplicación con Imagen de Fondo Centrada")
 
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
