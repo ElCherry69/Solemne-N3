@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import random
 
 st.title("FUSHIBALL")
 
@@ -33,9 +34,26 @@ with st.sidebar:
         st.write(('Esta aplicación se basa en la cultura del fútbol y un poco del conocimiento que se tiene hasta la fecha sobre él. '
                    'Hablándoles un poco sobre estadísticas de grandes equipos, jugadores que han logrado alzar el Balón de Oro y '
                    'países que levantaron la copa más preciada del mundo "La Copa del Mundo".'))
-        
+
     st.sidebar.header("Opciones de Filtro")
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
+
+# Botón para iniciar el mini-juego
+if st.sidebar.button("Jugar Adivina el Número"):
+    st.sidebar.write("¡Bienvenido al juego! Adivina un número entre 1 y 10.")
+    
+    # Generar un número aleatorio
+    secret_number = random.randint(1, 10)
+    
+    # Input del usuario
+    user_guess = st.sidebar.number_input("Ingresa tu adivinanza:", min_value=1, max_value=10)
+    
+    # Botón para verificar la adivinanza
+    if st.sidebar.button("Verificar"):
+        if user_guess == secret_number:
+            st.sidebar.success("¡Correcto! Adivinaste el número.")
+        else:
+            st.sidebar.error(f"Incorrecto. El número era {secret_number}.")
 
 def search_data(query):
     results = {
@@ -64,12 +82,4 @@ if search_title:
                     Winners_data = Winners_data.dropna(subset=['Year'])
                     
                     plt.figure(figsize=(10, 5))
-                    plt.plot(Winners_data['Year'], Winners_data['Score'], marker='o')
-                    plt.title(f'Rendimiento de {team_name} en UCL Finals')
-                    plt.xlabel('Año')
-                    plt.ylabel('Goles')
-                    plt.xticks(rotation=45)
-                    plt.grid()
-                    
-                    st.pyplot(plt)
-                    plt.clf()
+                   
