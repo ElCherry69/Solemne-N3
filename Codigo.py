@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 
 st.title("FUSHIBALL")
 
-# Función para establecer una imagen de fondo centrada
 def set_background_image(image_url):
     st.markdown(
         f"""
@@ -21,7 +20,6 @@ def set_background_image(image_url):
         unsafe_allow_html=True
     )
 
-# Llama a la función con la URL de la imagen
 set_background_image('https://wallpapers.com/images/hd/uefa-champions-league-intergalactic-stadium-2mxl696eobodolq3.jpg')
 
 # Carga de datos
