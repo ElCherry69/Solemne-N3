@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px  # Importar plotly.express
 
 st.title("FUSHIBALL")
 
@@ -66,25 +67,18 @@ if search_title:
                     Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].str.replace('–', '-').str.strip()
                     Winners_data['Year'] = pd.to_numeric(Winners_data['Year'], errors='coerce')
                     Winners_data = Winners_data.dropna(subset=['Year'])
-                    
-                    plt.figure(figsize=(10, 5))
-                    plt.plot(Winners_data['Year'], Winners_data['Score'], marker='o')
-                    plt.title(f'Rendimiento de {team_name} en UCL Finals')
-                    plt.xlabel('Año')
-                    plt.ylabel('Goles')
-                    plt.xticks(rotation=45)
-                    plt.grid()
-                    
-                    st.pyplot(plt)
-                    plt.clf()
+
+                    # Gráfico interactivo con Plotly
+                    fig = px.line(Winners_data, x='Year', y='Score', title=f'Rendimiento de {team_name} en UCL Finals',
+                                  labels={'Score': 'Goles', 'Year': 'Año'}, markers=True)
+                    st.plotly_chart(fig)  # Mostrar el gráfico interactivo
 
 # Caja de comentarios
 st.subheader("Hablemos de futbol⚽")
-comment = st.text_area("Deja tu comentario o pensamiento aqui:", height=100)
+comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=100)
 
 if st.button("Enviar Comentario"):
     if comment:
         st.success("Comentario enviado con éxito!")
-      
     else:
         st.warning("Por favor, escribe un comentario antes de enviar.")
