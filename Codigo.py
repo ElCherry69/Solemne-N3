@@ -79,12 +79,12 @@ if search_title:
                     plt.clf()
 
 # Caja de comentarios
-st.subheader("Comentarios y Análisis")
-comment = st.text_area("Deja tu comentario o análisis aquí:", height=150)
+st.subheader("Hablemos de futbol")
+comment = st.text_area("Deja tu comentario o pensamiento aqui:", height=100)
 
 if st.button("Enviar Comentario"):
     if comment:
         st.success("Comentario enviado con éxito!")
-        # Aquí puedes agregar lógica para guardar el comentario si es necesario
+      
     else:
         st.warning("Por favor, escribe un comentario antes de enviar.")
