@@ -38,8 +38,8 @@ with st.sidebar:
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
 # Botón para mostrar enlace
-if st.sidebar.button('Mostrar Enlace'):
-    st.sidebar.markdown('[Ir a Ejemplo](https://www.ejemplo.com)')  # Cambia el enlace aquí
+if st.sidebar.button('Lionel Andres Messi HERE'):
+    st.sidebar.markdown('[Ir a Ejemplo](https://www.elcomercio.com/deportes/futbol/fifa-the-best-messi-mbappe.html)')
 
 def search_data(query):
     results = {
