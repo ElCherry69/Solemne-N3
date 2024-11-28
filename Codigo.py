@@ -86,4 +86,4 @@ if search_title:
 st.subheader("Comentarios y Análisis")
 comment = st.text_area("Deja tu comentario o análisis aquí:", height=150)
 
-if st.button("Enviar Comentario")
+if st.button("Enviar Comentario"):
