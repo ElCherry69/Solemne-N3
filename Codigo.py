@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import plotly.express as px
 
 st.title("FUSHIBALL")
 
@@ -38,12 +37,9 @@ with st.sidebar:
     st.sidebar.header("Opciones de Filtro")
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
-    # Selección de competiciones
-    competition = st.sidebar.selectbox("Selecciona una competición:", ["Balón de Oro", "Copa del Mundo", "UCL All-Time", "UCL Finals"])
-
 # Botón para mostrar enlace
-if st.sidebar.button('Lionel Andres Messi HERE'):
-    st.sidebar.markdown('[!!El mejor jugador de todos los tiempos¡¡](https://www.elcomercio.com/deportes/futbol/fifa-the-best-messi-mbappe.html)')
+if st.sidebar.button('Mostrar Enlace'):
+    st.sidebar.markdown('[Ir a Ejemplo](https://www.ejemplo.com)')  # Cambia el enlace aquí
 
 def search_data(query):
     results = {
@@ -87,3 +83,8 @@ st.subheader("Comentarios y Análisis")
 comment = st.text_area("Deja tu comentario o análisis aquí:", height=150)
 
 if st.button("Enviar Comentario"):
+    if comment:
+        st.success("Comentario enviado con éxito!")
+        # Aquí puedes agregar lógica para guardar el comentario si es necesario
+    else:
+        st.warning("Por favor, escribe un comentario antes de enviar.")
