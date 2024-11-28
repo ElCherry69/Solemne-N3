@@ -37,6 +37,10 @@ with st.sidebar:
     st.sidebar.header("Opciones de Filtro")
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
+# Botón para mostrar enlace
+if st.sidebar.button('Mostrar Enlace'):
+    st.sidebar.markdown('[Ir a Ejemplo](https://www.ejemplo.com)')  # Cambia el enlace aquí
+
 def search_data(query):
     results = {
         "Balón de Oro": ballon_dor_data[ballon_dor_data.apply(lambda row: row.astype(str).str.contains(query, case=False).any(), axis=1)],
