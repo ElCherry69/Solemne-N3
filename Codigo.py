@@ -38,8 +38,8 @@ with st.sidebar:
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
 # Botón para mostrar enlace
-if st.sidebar.button('Mostrar Enlace'):
-    st.sidebar.markdown('[Ir a Ejemplo](https://www.ejemplo.com)')  # Cambia el enlace aquí
+if st.sidebar.button('El mejor jugador del mundo👑'):
+    st.sidebar.markdown('[!!LIONEL ANDRES MESSI HERE¡¡](https://www.afa.com.ar/es/posts/premios-the-best-lionel-messi-el-mejor-jugador-del-mundo)')  # Cambia el enlace aquí
 
 def search_data(query):
     results = {
@@ -79,7 +79,7 @@ if search_title:
                     plt.clf()
 
 # Caja de comentarios
-st.subheader("Hablemos de futbol")
+st.subheader("Hablemos de futbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aqui:", height=100)
 
 if st.button("Enviar Comentario"):
