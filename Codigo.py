@@ -39,7 +39,7 @@ with st.sidebar:
 
 # Botón para mostrar enlace
 if st.sidebar.button('Lionel Andres Messi HERE'):
-    st.sidebar.markdown('[!!El mejor jugador de todos los timepos¡¡](https://www.elcomercio.com/deportes/futbol/fifa-the-best-messi-mbappe.html)')
+    st.sidebar.markdown('[!!El mejor jugador de todos los tiempos¡¡](https://www.elcomercio.com/deportes/futbol/fifa-the-best-messi-mbappe.html)')
 
 def search_data(query):
     results = {
