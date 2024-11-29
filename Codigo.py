@@ -106,12 +106,12 @@ if pregunta2:
     else:
         st.write("Incorrecto. La respuesta correcta es Lionel Messi.")
 
-
+# Pregunta 3
 pregunta3 = st.selectbox("¿Cual es la seleccion con mas copas del mundo?", 
                           ("Brasil", "España", "Francia", "Alemania"))
 
 if pregunta3:
-    if pregunta3 == "Lionel Messi":
+    if pregunta3 == "Brasil":
         st.write("¡Correcto! Brasil con un total de cinco Copas del Mundo es la selección de fútbol con más Mundiales")
     else:
         st.write("Incorrecto. La respuesta correcta es Brasil.")
