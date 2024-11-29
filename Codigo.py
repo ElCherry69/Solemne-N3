@@ -74,11 +74,12 @@ if search_title:
                     Winners_data['Year'] = pd.to_numeric(Winners_data['Year'], errors='coerce')
                     Winners_data = Winners_data.dropna(subset=['Year'])
 
-                    # Gráfico interactivo con Plotly
+                  
                     fig = px.line(Winners_data, x='Year', y='Score', title=f'Rendimiento de {team_name} en UCL Finals',
                                   labels={'Score': 'Goles', 'Year': 'Año'}, markers=True)
-                    st.plotly_chart(fig)  # Mostrar el gráfico interactivo
+                    st.plotly_chart(fig)
 
+    
     if st.sidebar.button('Mostrar Palmarés Histórico de la Champions League'):
         if not ucl_finals_data.empty:
             # Agrupar por 'Winners' y contar el número de títulos
