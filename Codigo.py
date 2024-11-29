@@ -77,7 +77,7 @@ if search_title:
             st.dataframe(result)
 
             if title == "UCL Finals":
- team_name = search_title
+                team_name = search_title
                 
                 Winners_data = result[result['Winners'].str.contains(team_name, case=False)]
                 
@@ -155,7 +155,7 @@ if st.button("Mostrar Galería de Imágenes"):
             "descripcion": "Un partido sin publico.El 12 de Marzo del años 2022 se enfrento el Barcelona contra el PSG, un partido que dejo a todos con la boca callada ya que se jugaba sin publico por culpa de la pandia."
         },
         {
-            "url": "https://www.clarin.com/img/2021/12/19/dfCWMdEiZ_1256x620__1.jpg", "descripcion": "El 19 de Diciembre de 1863 se disputó el primer partido de fútbol en la historia. Un encuentro que enfrentó al Barnes Football Club contra el Richmond Football Club, y que terminó con un resultado final de 0-0. El partido se disputó en Limes Field, barrio de Mortlake, situado a las afueras de Londres, Inglaterra."
+            "url": "https://www.clarin.com/img/2021/12/19/dfCWMdEiZ_125 6x620__1.jpg", "descripcion": "El 19 de Diciembre de 1863 se disputó el primer partido de fútbol en la historia. Un encuentro que enfrentó al Barnes Football Club contra el Richmond Football Club, y que terminó con un resultado final de 0-0. El partido se disputó en Limes Field, barrio de Mortlake, situado a las afueras de Londres, Inglaterra."
         },
     ]
 
