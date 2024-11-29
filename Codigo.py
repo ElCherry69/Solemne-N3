@@ -75,8 +75,7 @@ if search_title:
     if st.sidebar.button('Mostrar Palmarés Histórico de la Champions League'):
         if not ucl_finals_data.empty:
             # Agrupar por 'Winners' y contar el número de títulos
-            titles_summary = ucl_finals_data['Winners'].value_counts().reset_index ```python
-()
+            titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
             titles_summary.columns = ['Equipo', 'Total de Títulos']
             
             # Mostrar la tabla de resumen
