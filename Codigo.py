@@ -79,7 +79,7 @@ if not ucl_finals_data.empty:
     titles_summary.columns = ['Equipo', 'Total de Títulos']
     
     # Mostrar la tabla de resumen
-    st.subheader("Resumen de Títulos Ganados por Equipo en UCL Finals")
+    st.subheader("Palmares historico de champions league")
     st.dataframe(titles_summary)
 
 
