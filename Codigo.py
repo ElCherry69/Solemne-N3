@@ -89,17 +89,15 @@ st.subheader("Generador de Resultados Aleatorios entre Dos Equipos")
 # Asegúrate de que la columna de ganadores se llama 'Winners'
 winners = ucl_finals_data['Winners'].unique().tolist()
 
-# Botón para mostrar el generador
-if st.button("Mostrar Generador de Resultados Aleatorios"):
-    # Seleccionar dos equipos
-    equipo1 = st.selectbox("Selecciona el primer equipo", winners)
-    equipo2 = st.selectbox("Selecciona el segundo equipo", winners)
+# Seleccionar dos equipos
+equipo1 = st.selectbox("Selecciona el primer equipo", winners)
+equipo2 = st.selectbox("Selecciona el segundo equipo", winners)
 
-    if st.button("Generar Resultado Aleatorio"):
-        # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
-        score1 = random.randint(0, 5)
-        score2 = random.randint(0, 5)
-        st.write(f"¡El resultado del partido entre **{equipo1}** y **{equipo2}** es: **{score1} - {score2}**!")
+if st.button("Generar Resultado Aleatorio"):
+    # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
+    score1 = random.randint(0, 5)
+    score2 = random.randint(0, 5)
+    st.write(f"¡El resultado del partido entre **{equipo1}** y **{equipo2}** es: **{score1} - {score2}**!")
 
 st.subheader("Preguntas y Respuestas")
 
