@@ -39,7 +39,7 @@ with st.sidebar:
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
 # Generador de resultados aleatorios entre dos equipos
-st.sidebar("¿Quien gana?")
+st.subheader("¿Quien gana?")
 
 # Asegúrate de que la columna de ganadores se llama 'Winners'
 winners = ucl_finals_data['Winners'].unique().tolist()
