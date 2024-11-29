@@ -39,9 +39,9 @@ with st.sidebar:
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
     # Botón para mostrar el generador de resultados aleatorios
-    if st.sidebar.button("Mostrar Generador de Resultados Aleatorios"):
+    if st.sidebar.button("¿QUIEN GANARIA?"):
         # Generador de resultados aleatorios entre dos equipos
-        st.sidebar.subheader("Generador de Resultados Aleatorios entre Dos Equipos")
+        st.sidebar.subheader("Generador de Resultado")
 
         # Asegúrate de que la columna de ganadores se llama 'Winners'
         winners = ucl_finals_data['Winners'].unique().tolist()
@@ -101,9 +101,9 @@ if search_title:
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
-st.subheader("Preguntas y Respuestas")
+st.subheader("Quiz")
 
-with st.expander("Haz clic para ver las preguntas", expanded=False):
+with st.expander("¡Estas list@?", expanded=False):
     pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
                           ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"), key="pregunta1")
 
@@ -141,8 +141,8 @@ with st.expander("Haz clic para ver las preguntas", expanded=False):
             st.write("Incorrecto. La respuesta correcta es Pelé.")
 
 # Botón para mostrar la galería de imágenes
-if st.button("Mostrar Galería de Imágenes"):
-    st.subheader("Galería de Imágenes")
+if st.button("Momentos"):
+    st.subheader("Momentos Iconicos Del Futbol")
 
     # Definir una lista de imágenes y sus descripciones
     imagenes = [
