@@ -121,7 +121,7 @@ pregunta4 = st.radio("¿Quien es el amximo goleador de la historia del futbol?",
                           ("Armando Maradona", "Cristian Ronaldo", "Eduardo Vargas", "Pele"))
 
 if pregunta3:
-    if pregunta3 == "Pele":
+    if pregunta4 == "Pele":
         st.write("¡Correcto! Pele es el unico jugador con 1200 goles en la historia, convirtiendolo en el goleador maximo de todos los tiempos")
     else:
         st.write("Incorrecto. La respuesta correcta es Pele.")
