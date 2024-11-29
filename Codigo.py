@@ -76,7 +76,7 @@ if search_title:
         if not ucl_finals_data.empty:
             # Agrupar por 'Winners' y contar el número de títulos
             titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
-            titles_summary.columns = [' Equipo', 'Total de Títulos']
+            titles_summary.columns = ['Equipo', 'Total de Títulos ']
             
             # Mostrar la tabla de resumen
             st.subheader("Palmarés Histórico De La Champions League")
@@ -110,7 +110,8 @@ if st.button("Comparar"):
                      labels={'Total de Títulos': 'Número de Títulos', 'Equipo': 'Equipos'})
         st.plotly_chart(fig)
     else:
-        st.warning("No se encontraron datos para uno o ambos equipos seleccionados.") ```python
+        st.warning("No se encontraron datos para uno o ambos equipos seleccionados.")
+
 st.subheader("Preguntas y Respuestas")
 
 with st.expander("Haz clic para ver las preguntas", expanded=False):
