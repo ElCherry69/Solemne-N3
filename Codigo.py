@@ -75,7 +75,7 @@ if search_title:
 
 # Caja de comentarios
 st.subheader("Hablemos de futbol⚽")
-comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=100)
+comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80)
 
 if st.button("Enviar Comentario"):
     if comment:
