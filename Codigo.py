@@ -75,10 +75,11 @@ if search_title:
     if st.sidebar.button('Mostrar Palmarés Histórico de la Champions League'):
         if not ucl_finals_data.empty:
             # Agrupar por 'Winners' y contar el número de títulos
-            titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
+            titles_summary = ucl_finals_data['Winners'].value_counts().reset_index ```python
+()
             titles_summary.columns = ['Equipo', 'Total de Títulos']
             
-            # # Mostrar la tabla de resumen
+            # Mostrar la tabla de resumen
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
@@ -121,31 +122,31 @@ with st.expander("Haz clic para ver las preguntas", expanded=False):
         else:
             st.write("Incorrecto. La respuesta correcta es Pelé.")
 
-st.subheader("Galería de Imágenes")
+# Botón para mostrar la galería de imágenes
+if st.button("Mostrar Galería de Imágenes"):
+    st.subheader("Galería de Imágenes")
 
-# Definir una lista de imágenes y sus descripciones
-imagenes = [
-    {
-        "url": "https://ovaciones.com/wp-content/uploads/2022/12/pele-campeonn.jpg",  # Reemplaza con la URL de tu imagen
-        "descripcion": "Pele disputaba su primera final a la edad de 22 años ante Suecia donde el partido quedo 5-2.Pelé marcó dos golazos, uno inolvidable con aquel famoso sombrero que paró el tiempo en el estadio Rasunda de Solna. Coronandose por primera vez"
-    },
-    {
-        "url": "https://th.bing.com/th/id/OIP.I-ri4dcMm_fcku_zrM8_-gHaEl?rs=1&pid=ImgDetMain.jpg", 
-        "descripcion": "Un partido sin publico.El 12 de Marzo del años 2022 se enfrento el Barcelona contra el PSG, un partido que dejo a todos con la boca callada ya que se jugaba sin publico por culpa de la pandia."
-    },
-    {
-        "url": "https://www.clarin.com/img/2021/12/19/dfCWMdEiZ_1256x620__1.jpg",  # Reemplaza con la URL de tu imagen
-        "descripcion": "El 19 de Diciembre de 1863 se disputó el primer partido de fútbol en la historia. Un encuentro que enfrentó al Barnes Football Club contra el Richmond Football Club, y que terminó con un resultado final de 0-0. El partido se disputó en Limes Field, barrio de Mortlake, situado a las afueras de Londres, Inglaterra.."
-    },
-    # Agrega más imágenes según sea necesario
-]
+    # Definir una lista de imágenes y sus descripciones
+    imagenes = [
+        {
+            "url": "https://ovaciones.com/wp-content/uploads/2022/12/pele-campeonn.jpg",  
+            "descripcion": "Pele disputaba su primera final a la edad de 22 años ante Suecia donde el partido quedo 5-2.Pelé marcó dos golazos, uno inolvidable con aquel famoso sombrero que paró el tiempo en el estadio Rasunda de Solna. Coronandose por primera vez"
+        },
+        {
+            "url": "https://th.bing.com/th/id/OIP.I-ri4dcMm_fcku_zrM8_-gHaEl?rs=1&pid=ImgDetMain.jpg", 
+            "descripcion": "Un partido sin publico.El 12 de Marzo del años 2022 se enfrento el Barcelona contra el PSG, un partido que dejo a todos con la boca callada ya que se jugaba sin publico por culpa de la pandia."
+        },
+        {
+            "url": "https://www.clarin.com/img/2021/12/19/dfCWMdEiZ_1256x620__1.jpg",  
+            "descripcion": "El 19 de Diciembre de 1863 se disputó el primer partido de fútbol en la historia. Un encuentro que enfrentó al Barnes Football Club contra el Richmond Football Club, y que terminó con un resultado final de 0-0. El partido se disputó en Limes Field, barrio de Mortlake, situado a las afueras de Londres, Inglaterra."
+        },
+    ]
 
-# Mostrar las imágenes y sus descripciones
-for img in imagenes:
-    st.image(img["url"], caption=img["descripcion"], use_column_width=True)
-    st.write("---")  # Línea divisoria entre imágenes
+    # Mostrar las imágenes y sus descripciones
+    for img in imagenes:
+        st.image(img["url"], caption=img["descripcion"], use_column_width=True)
+        st.write("---")  # Línea divisoria entre imágenes
 
- 
 st.subheader("Hablemos de fútbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80, key="comment")
 
