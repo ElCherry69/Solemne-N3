@@ -73,14 +73,15 @@ if search_title:
                                   labels={'Score': 'Goles', 'Year': 'Año'}, markers=True)
                     st.plotly_chart(fig)  # Mostrar el gráfico interactivo
 
-if not ucl_finals_data.empty:
-    # Agrupar por 'Winners' y contar el número de títulos
-    titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
-    titles_summary.columns = ['Equipo', 'Total de Títulos']
-    
-    # Mostrar la tabla de resumen
-    st.subheader("Palmares Historico De La Champions League")
-    st.dataframe(titles_summary)
+    if st.sidebar.button('Mostrar Palmarés Histórico de la Champions League'):
+        if not ucl_finals_data.empty:
+            # Agrupar por 'Winners' y contar el número de títulos
+            titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
+            titles_summary.columns = ['Equipo', 'Total de Títulos']
+            
+            # Mostrar la tabla de resumen
+            st.subheader("Palmarés Histórico De La Champions League")
+            st.dataframe(titles_summary)
 
 
 # Caja de comentarios
