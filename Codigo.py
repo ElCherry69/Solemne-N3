@@ -84,7 +84,7 @@ if search_title:
             st.dataframe(titles_summary)
 
 # Sección de preguntas
-with st.expander("Preguntas de Fútbol", expanded=False):
+st.subheader("Preguntas y Respuestas")
 
 # Pregunta 1
 pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
