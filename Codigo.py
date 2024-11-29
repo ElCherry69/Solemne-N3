@@ -40,21 +40,22 @@ with st.sidebar:
 
     # Botón para mostrar el generador de resultados aleatorios
     if st.sidebar.button("Mostrar Generador de Resultados Aleatorios"):
-    # Generador de resultados aleatorios entre dos equipos
-    st.sidebar.subheader("Generador de Resultados Aleatorios entre Dos Equipos")
+        # Generador de resultados aleatorios entre dos equipos
+        st.sidebar.subheader("Generador de Resultados Aleatorios entre Dos Equipos")
 
-    # Asegúrate de que la columna de ganadores se llama 'Winners'
-    winners = ucl_finals_data['Winners'].unique().tolist()
+        # Asegúrate de que la columna de ganadores se llama 'Winners'
+        winners = ucl_finals_data['Winners'].unique().tolist()
 
-    # Seleccionar dos equipos
-    equipo1 = st.sidebar.selectbox("Selecciona el primer equipo", winners)
-    equipo2 = st.sidebar.selectbox("Selecciona el segundo equipo", winners)
+        # Seleccionar dos equipos
+        equipo1 = st.sidebar.selectbox("Selecciona el primer equipo", winners)
+        equipo2 = st.sidebar.selectbox("Selecciona el segundo equipo", winners)
 
-    if st.sidebar.button("Generar Resultado Aleatorio"):
-        # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
-        score1 = random.randint(0, 5)
-        score2 = random.randint(0, 5)
-        st.sidebar.write(f"¡El resultado del partido entre **{equipo1}** y **{equipo2}** es: **{score1} - {score2}**!")
+        if st.sidebar.button("Generar Resultado Aleatorio"):
+            # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
+            score1 = random.randint(0, 5)
+            score2 = random.randint(0, 5)
+            st.sidebar.write(f"¡El resultado del partido entre **{equipo1}** y **{equipo2}** es: **{score1} - {score2}**!")
+
 # Botón para mostrar enlace
 if st.sidebar.button('El mejor jugador del mundo👑'):
     st.sidebar.markdown('[!!LIONEL ANDRES MESSI HERE¡¡](https://www.afa.com.ar/es/posts/premios-the-best-lionel-messi-el-mejor-jugador-del-mundo)')  # Cambia el enlace aquí
@@ -81,7 +82,7 @@ if search_title:
                 Winners_data = result[result['Winners'].str.contains(team_name, case=False)]
                 
                 if not Winners_data.empty:
-                    Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].str.replace('–', '-').str.strip()
+                    Winners_data['Year'] = Winners_data['Season'].str.split('/').str[0].str.replace('–', '- ').str.strip()
                     Winners_data['Year'] = pd.to_numeric(Winners_data['Year'], errors='coerce')
                     Winners_data = Winners_data.dropna(subset=['Year'])
 
@@ -154,7 +155,8 @@ if st.button("Momentos"):
             "descripcion": "Un partido sin publico.El 12 de Marzo del años 2022 se enfrento el Barcelona contra el PSG, un partido que dejo a todos con la boca callada ya que se jugaba sin publico por culpa de la pandia."
         },
         {
-            "url": "https://th.bing.com/th/id/R.7013f9929b5cd37ab57ba32a0a5a6fd2?rik=SiDmBfiJGU8%2f7w&riu=http%3a%2f%2fstorage.rayados.com%2fnoticias%2fg%2f15293_Momento-Rayados-Primer-Partido-Internacional.jpg&ehk=Hd%2fEZz9tded7p%2fdXg17rPR9xEu94EMg3kiB84aHItj8%3d&risl=&pid=ImgRaw&r=0", "descripcion": "El 19 de Diciembre de 1863 se disputó el primer partido de fútbol en la historia. Un encuentro que enfrentó al Barnes Football Club contra el Richmond Football Club, y que terminó con un resultado final de 0-0. El partido se disputó en Limes Field, barrio de Mortlake, situado a las afueras de Londres, Inglaterra."
+            "url": "https://th.bing.com/th/id/R.7013f9929b5cd37ab57ba32a0a5a6fd2?rik=SiDmBfiJGU8%2f7w&riu=http%3a%2f%2fstorage.rayados.com%2fnoticias%2fg%2f15293_Momento-Rayados-Primer-Partido-Internacional.jpg&ehk=Hd%2fEZ z9tded7p%2fdXg17rPR9xEu94EMg3kiB84aHItj8%3d&risl=&pid=ImgRaw&r=0", 
+            "descripcion": "El 19 de Diciembre de 1863 se disputó el primer partido de fútbol en la historia. Un encuentro que enfrentó al Barnes Football Club contra el Richmond Football Club, y que terminó con un resultado final de 0-0. El partido se disputó en Limes Field, barrio de Mortlake, situado a las afueras de Londres, Inglaterra."
         },
     ]
 
