@@ -78,48 +78,48 @@ if search_title:
             titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
             titles_summary.columns = ['Equipo', 'Total de Títulos']
             
-            # Mostrar la tabla de resumen
-            st.subheader("Palmar és Histórico De La Champions League")
+            # # Mostrar la tabla de resumen
+            st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
 st.subheader("Preguntas y Respuestas")
 
 with st.expander("Haz clic para ver las preguntas", expanded=False):
-pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
-                      ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"), key="pregunta1")
+    pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
+                          ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"), key="pregunta1")
 
-if pregunta1:
-    if pregunta1 == "Real Madrid":
-        st.write("¡Correcto! Real Madrid tiene más títulos en la Champions League.")
-    else:
-        st.write("Incorrecto. La respuesta correcta es Real Madrid.")
+    if pregunta1:
+        if pregunta1 == "Real Madrid":
+            st.write("¡Correcto! Real Madrid tiene más títulos en la Champions League.")
+        else:
+            st.write("Incorrecto. La respuesta correcta es Real Madrid.")
 
-pregunta2 = st.radio("¿Quién ganó el Balón de Oro en 2021?", 
-                      ("Karim Benzema", "Cristiano Ronaldo", "Robert Lewandowski", "Lionel Messi"), key="pregunta2")
+    pregunta2 = st.radio("¿Quién ganó el Balón de Oro en 2021?", 
+                          ("Karim Benzema", "Cristiano Ronaldo", "Robert Lewandowski", "Lionel Messi"), key="pregunta2")
 
-if pregunta2:
-    if pregunta2 == "Lionel Messi":
-        st.write("¡Correcto! Lionel Messi ganó el Balón de Oro en 2021.")
-    else:
-        st.write("Incorrecto. La respuesta correcta es Lionel Messi.")
+    if pregunta2:
+        if pregunta2 == "Lionel Messi":
+            st.write("¡Correcto! Lionel Messi ganó el Balón de Oro en 2021.")
+        else:
+            st.write("Incorrecto. La respuesta correcta es Lionel Messi.")
 
-pregunta3 = st.radio("¿Cuál es la selección con más copas del mundo?", 
-                      ("Brasil", "España", "Francia", "Alemania"), key="pregunta3")
+    pregunta3 = st.radio("¿Cuál es la selección con más copas del mundo?", 
+                          ("Brasil", "España", "Francia", "Alemania"), key="pregunta3")
 
-if pregunta3:
-    if pregunta3 == "Brasil":
-        st.write("¡Correcto! Brasil con un total de cinco Copas del Mundo, es la selección de fútbol con más Mundiales.")
-    else:
-        st.write("Incorrecto. La respuesta correcta es Brasil.")
+    if pregunta3:
+        if pregunta3 == "Brasil":
+            st.write("¡Correcto! Brasil con un total de cinco Copas del Mundo, es la selección de fútbol con más Mundiales.")
+        else:
+            st.write("Incorrecto. La respuesta correcta es Brasil.")
 
-pregunta4 = st.radio("¿Quién es el máximo goleador de la historia del fútbol?", 
-                      ("Armando Maradona", "Cristiano Ronaldo", "Eduardo Vargas", "Pelé"), key="pregunta4")
+    pregunta4 = st.radio("¿Quién es el máximo goleador de la historia del fútbol?", 
+                          ("Armando Maradona", "Cristiano Ronaldo", "Eduardo Vargas", "Pelé"), key="pregunta4")
 
-if pregunta4:
-    if pregunta4 == "Pelé":
-        st.write("¡Correcto! Pelé es el único jugador con 1200 goles en la historia, convirtiéndolo en el goleador máximo de todos los tiempos.")
-    else:
-        st.write("Incorrecto. La respuesta correcta es Pelé.")
+    if pregunta4:
+        if pregunta4 == "Pelé":
+            st.write("¡Correcto! Pelé es el único jugador con 1200 goles en la historia, convirtiéndolo en el goleador máximo de todos los tiempos.")
+        else:
+            st.write("Incorrecto. La respuesta correcta es Pelé.")
 
 st.subheader("Hablemos de fútbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80, key="comment")
