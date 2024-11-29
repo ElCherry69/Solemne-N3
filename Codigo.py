@@ -85,19 +85,27 @@ if search_title:
 
 # Sección de preguntas
 st.subheader("Preguntas de Fútbol")
+
+# Pregunta 1
 pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
                       ("Real Madrid", "AC Milan", "Liverpool", "Barcelona"))
 
 if pregunta1:
-    st.write(f"Has seleccionado: {pregunta1}")
+    if pregunta1 == "Real Madrid":
+        st.write("¡Correcto! Real Madrid tiene más títulos en la Champions League.")
+    else:
+        st.write("Incorrecto. La respuesta correcta es Real Madrid.")
 
+# Pregunta 2
 pregunta2 = st.selectbox("¿Quién ganó el Balón de Oro en 2021?", 
                           ("Lionel Messi", "Cristiano Ronaldo", "Robert Lewandowski", "Karim Benzema"))
 
 if pregunta2:
-    st.write(f"Has seleccionado: {pregunta2}")
-
-# Caja de comentarios
+    if pregunta2 == "Lionel Messi":
+        st.write("¡Correcto! Lionel Messi ganó el Balón de Oro en 2021.")
+    else:
+        st.write("Incorrecto. La respuesta correcta es Lionel Messi.")
+        
 st.subheader("Hablemos de futbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80)
 
