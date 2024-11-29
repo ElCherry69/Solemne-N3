@@ -105,6 +105,18 @@ if pregunta2:
         st.write("¡Correcto! Lionel Messi ganó el Balón de Oro en 2021.")
     else:
         st.write("Incorrecto. La respuesta correcta es Lionel Messi.")
+
+
+pregunta3 = st.selectbox("¿Cual es la seleccion con mas copas del mundo?", 
+                          ("Brasil", "España", "Francia", "Alemania"))
+
+if pregunta3:
+    if pregunta3 == "Lionel Messi":
+        st.write("¡Correcto! Brasil con un total de cinco Copas del Mundo es la selección de fútbol con más Mundiales")
+    else:
+        st.write("Incorrecto. La respuesta correcta es Brasil.")
+
+
         
 st.subheader("Hablemos de futbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80)
