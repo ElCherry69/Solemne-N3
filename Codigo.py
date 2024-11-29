@@ -121,6 +121,31 @@ with st.expander("Haz clic para ver las preguntas", expanded=False):
         else:
             st.write("Incorrecto. La respuesta correcta es Pelé.")
 
+st.subheader("Galería de Imágenes")
+
+# Definir una lista de imágenes y sus descripciones
+imagenes = [
+    {
+        "url": "https://ovaciones.com/wp-content/uploads/2022/12/pele-campeonn.jpg",  # Reemplaza con la URL de tu imagen
+        "descripcion": "Descripción de la imagen 1."
+    },
+    {
+        "url": "https://example.com/image2.jpg",  # Reemplaza con la URL de tu imagen
+        "descripcion": "Descripción de la imagen 2."
+    },
+    {
+        "url": "https://example.com/image3.jpg",  # Reemplaza con la URL de tu imagen
+        "descripcion": "Descripción de la imagen 3."
+    },
+    # Agrega más imágenes según sea necesario
+]
+
+# Mostrar las imágenes y sus descripciones
+for img in imagenes:
+    st.image(img["url"], caption=img["descripcion"], use_column_width=True)
+    st.write("---")  # Línea divisoria entre imágenes
+
+ 
 st.subheader("Hablemos de fútbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80, key="comment")
 
