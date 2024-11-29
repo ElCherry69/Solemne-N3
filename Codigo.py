@@ -83,6 +83,29 @@ if search_title:
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
+# Sección de preguntas
+st.subheader("Preguntas de Fútbol")
+pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
+                      ("Real Madrid", "AC Milan", "Liverpool", "Barcelona"))
+
+if pregunta1:
+    st.write(f"Has seleccionado: {pregunta1}")
+
+pregunta2 = st.selectbox("¿Quién ganó el Balón de Oro en 2021?", 
+                          ("Lionel Messi", "Cristiano Ronaldo", "Robert Lewandowski", "Karim Benzema"))
+
+if pregunta2:
+    st.write(f"Has seleccionado: {pregunta2}")
+
+# Caja de comentarios
+st.subheader("Hablemos de futbol⚽")
+comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80)
+
+if st.button("Enviar Comentario"):
+    if comment:
+        st.success("Comentario enviado con éxito!")
+    else:
+        st.warning("Por favor, escribe un comentario antes de enviar.")
 
 # Caja de comentarios
 st.subheader("Hablemos de futbol⚽")
