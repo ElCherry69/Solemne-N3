@@ -84,7 +84,7 @@ if search_title:
             st.dataframe(titles_summary)
 
 # Generador de resultados aleatorios entre dos equipos
-st.subheader("Generador de Resultados Aleatorios entre Dos Equipos")
+ if st.sidebar.button("Generador de Resultados Aleatorios entre Dos Equipos")
 
 # Asegúrate de que la columna de ganadores se llama 'Winners'
 winners = ucl_finals_data['Winners'].unique().tolist()
