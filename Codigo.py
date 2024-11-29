@@ -88,7 +88,7 @@ st.subheader("Preguntas de Fútbol")
 
 # Pregunta 1
 pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
-                      ("Real Madrid", "AC Milan", "Liverpool", "Barcelona"))
+                      ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"))
 
 if pregunta1:
     if pregunta1 == "Real Madrid":
@@ -98,7 +98,7 @@ if pregunta1:
 
 # Pregunta 2
 pregunta2 = st.radio("¿Quién ganó el Balón de Oro en 2021?", 
-                          ("Lionel Messi", "Cristiano Ronaldo", "Robert Lewandowski", "Karim Benzema"))
+                          ("Karim Benzema", "Cristiano Ronaldo", "Robert Lewandowski", "Lionel Messi"))
 
 if pregunta2:
     if pregunta2 == "Lionel Messi":
@@ -112,10 +112,19 @@ pregunta3 = st.radio("¿Cual es la seleccion con mas copas del mundo?",
 
 if pregunta3:
     if pregunta3 == "Brasil":
-        st.write("¡Correcto! Brasil con un total de cinco Copas del Mundo es la selección de fútbol con más Mundiales")
+        st.write("¡Correcto! Brasil con un total de cinco Copas del Mundo, es la selección de fútbol con más Mundiales")
     else:
         st.write("Incorrecto. La respuesta correcta es Brasil.")
 
+
+pregunta4 = st.radio("¿Quien es el amximo goleador de la historia del futbol?", 
+                          ("Armando Maradona", "Cristian Ronaldo", "Eduardo Vargas", "Pele"))
+
+if pregunta3:
+    if pregunta3 == "Pele":
+        st.write("¡Correcto! Pele es el unico jugador con 1200 goles en la historia, convirtiendolo en el goleador maximo de todos los tiempos")
+    else:
+        st.write("Incorrecto. La respuesta correcta es Pele.")
 
         
 st.subheader("Hablemos de futbol⚽")
