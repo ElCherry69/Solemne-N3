@@ -80,7 +80,7 @@ if search_title:
             titles_summary.columns = ['Equipo', 'Total de Títulos']
             
             # Mostrar la tabla de resumen
-            st .subheader("Palmarés Histórico De La Champions League")
+            st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
 # Generador de resultados aleatorios entre dos equipos
