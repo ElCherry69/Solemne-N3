@@ -39,23 +39,22 @@ with st.sidebar:
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
     # Botón para mostrar el generador de resultados aleatorios
-    if st.sidebar.button("¿QUIEN GANARIA?"):
-        # Generador de resultados aleatorios entre dos equipos
-        st.sidebar.subheader("Generador de Resultado")
+    if st.sidebar.button("Mostrar Generador de Resultados Aleatorios"):
+    # Generador de resultados aleatorios entre dos equipos
+    st.sidebar.subheader("Generador de Resultados Aleatorios entre Dos Equipos")
 
-        # Asegúrate de que la columna de ganadores se llama 'Winners'
-        winners = ucl_finals_data['Winners'].unique().tolist()
+    # Asegúrate de que la columna de ganadores se llama 'Winners'
+    winners = ucl_finals_data['Winners'].unique().tolist()
 
-        # Seleccionar dos equipos
-        equipo1 = st.sidebar.selectbox("Selecciona el primer equipo", winners)
-        equipo2 = st.sidebar.selectbox("Selecciona el segundo equipo", winners)
+    # Seleccionar dos equipos
+    equipo1 = st.sidebar.selectbox("Selecciona el primer equipo", winners)
+    equipo2 = st.sidebar.selectbox("Selecciona el segundo equipo", winners)
 
-        if st.sidebar.button("Generar Resultado "):
-            # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
-            score1 = random.randint(0, 5)
-            score2 = random.randint(0, 5)
-            st.sidebar.write(f"¡El resultado del partido entre **{equipo1}** y **{equipo2}** es: **{score1} - {score2}**!")
-
+    if st.sidebar.button("Generar Resultado Aleatorio"):
+        # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
+        score1 = random.randint(0, 5)
+        score2 = random.randint(0, 5)
+        st.sidebar.write(f"¡El resultado del partido entre **{equipo1}** y **{equipo2}** es: **{score1} - {score2}**!")
 # Botón para mostrar enlace
 if st.sidebar.button('El mejor jugador del mundo👑'):
     st.sidebar.markdown('[!!LIONEL ANDRES MESSI HERE¡¡](https://www.afa.com.ar/es/posts/premios-the-best-lionel-messi-el-mejor-jugador-del-mundo)')  # Cambia el enlace aquí
