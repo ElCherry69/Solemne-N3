@@ -73,6 +73,16 @@ if search_title:
                                   labels={'Score': 'Goles', 'Year': 'Año'}, markers=True)
                     st.plotly_chart(fig)  # Mostrar el gráfico interactivo
 
+if not ucl_finals_data.empty:
+    # Agrupar por 'Winners' y contar el número de títulos
+    titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
+    titles_summary.columns = ['Equipo', 'Total de Títulos']
+    
+    # Mostrar la tabla de resumen
+    st.subheader("Resumen de Títulos Ganados por Equipo en UCL Finals")
+    st.dataframe(titles_summary)
+
+
 # Caja de comentarios
 st.subheader("Hablemos de futbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80)
