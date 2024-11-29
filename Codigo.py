@@ -82,9 +82,9 @@ if search_title:
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
-st.subheader("Preguntas y Respuestas")
+st.subheader("Quiz de futbol")
 
-with st.expander("Haz clic para ver las preguntas", expanded=False):
+with st.expander("¿Estas list@?", expanded=False):
     pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
                           ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"), key="pregunta1")
 
