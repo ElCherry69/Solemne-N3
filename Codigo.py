@@ -76,41 +76,50 @@ if search_title:
         if not ucl_finals_data.empty:
             # Agrupar por 'Winners' y contar el número de títulos
             titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
-            titles_summary.columns = ['Equipo', 'Total de Títulos ']
+            titles_summary.columns = ['Equipo', 'Total de Títulos']
             
-            # Mostrar la tabla de resumen
+            # # Mostrar la tabla de resumen
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
-# Comparación de equipos
-st.subheader("Comparar Equipos")
-equipo1 = st.selectbox("Selecciona el primer equipo", ucl_data['Winners'].unique())
-equipo2 = st.selectbox("Selecciona el segundo equipo", ucl_data['Winners'].unique())
+st.subheader("Preguntas y Respuestas")
 
-if st.button("Comparar Equipos"):
-    if equipo1 != equipo2:
-        equipo1_data = ucl_data[ucl_data['Winners'] == equipo1]
-        equipo2_data = ucl_data[ucl_data['Winners'] == equipo2]
+with st.expander("Haz clic para ver las preguntas", expanded=False):
+    pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
+                          ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"), key="pregunta1")
 
-        st.subheader(f"Comparación entre {equipo1} y {equipo2}")
-        st.write(f"{equipo1} ha ganado {equipo1_data.shape[0]} títulos.")
-        st.write(f"{equipo2} ha ganado {equipo2_data.shape[0]} títulos.")
-        
-        # Comparar datos de Balón de Oro
-        ballon_dor_equipo1 = ballon_dor_data[ballon_dor_data['Player'].str.contains(equipo1, case=False)]
-        ballon_dor_equipo2 = ballon_dor_data[ballon_dor_data['Player'].str.contains(equipo2, case=False)]
-        
-        st.write(f"{equipo1} tiene {ballon_dor_equipo1.shape[0]} Balones de Oro.")
-        st.write(f"{equipo2} tiene {ballon_dor_equipo2.shape[0]} Balones de Oro.")
-        
-        # Comparar datos de Copa del Mundo
-        world_cup_equipo1 = world_cup_data[world_cup_data['Team'].str.contains(equipo1, case=False)]
-        world_cup_equipo2 = world_cup_data[world_cup_data['Team'].str.contains(equipo2, case=False)]
-        
-        st.write(f"{equipo1} ha ganado la Copa del Mundo {world_cup_equipo1.shape[0]} veces.")
-        st.write(f"{equipo2} ha ganado la Copa del Mundo {world_cup_equipo2.shape[0]} veces.")
-    else:
-        st.warning("Por favor, selecciona dos equipos diferentes para comparar.")
+    if pregunta1:
+        if pregunta1 == "Real Madrid":
+            st.write("¡Correcto! Real Madrid tiene más títulos en la Champions League.")
+        else:
+            st.write("Incorrecto. La respuesta correcta es Real Madrid.")
+
+    pregunta2 = st.radio("¿Quién ganó el Balón de Oro en 2021?", 
+                          ("Karim Benzema", "Cristiano Ronaldo", "Robert Lewandowski", "Lionel Messi"), key="pregunta2")
+
+    if pregunta2:
+        if pregunta2 == "Lionel Messi":
+            st.write("¡Correcto! Lionel Messi ganó el Balón de Oro en 2021.")
+        else:
+            st.write("Incorrecto. La respuesta correcta es Lionel Messi.")
+
+    pregunta3 = st.radio("¿Cuál es la selección con más copas del mundo?", 
+                          ("Brasil", "España", "Francia", "Alemania"), key="pregunta3")
+
+    if pregunta3:
+        if pregunta3 == "Brasil":
+            st.write("¡Correcto! Brasil con un total de cinco Copas del Mundo, es la selección de fútbol con más Mundiales.")
+        else:
+            st.write("Incorrecto. La respuesta correcta es Brasil.")
+
+    pregunta4 = st.radio("¿Quién es el máximo goleador de la historia del fútbol?", 
+                          ("Armando Maradona", "Cristiano Ronaldo", "Eduardo Vargas", "Pelé"), key="pregunta4")
+
+    if pregunta4:
+        if pregunta4 == "Pelé":
+            st.write("¡Correcto! Pelé es el único jugador con 1200 goles en la historia, convirtiéndolo en el goleador máximo de todos los tiempos.")
+        else:
+            st.write("Incorrecto. La respuesta correcta es Pelé.")
 
 st.subheader("Hablemos de fútbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80, key="comment")
