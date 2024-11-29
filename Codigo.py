@@ -97,7 +97,7 @@ if pregunta1:
         st.write("Incorrecto. La respuesta correcta es Real Madrid.")
 
 # Pregunta 2
-pregunta2 = st.selectbox("¿Quién ganó el Balón de Oro en 2021?", 
+pregunta2 = st.radio("¿Quién ganó el Balón de Oro en 2021?", 
                           ("Lionel Messi", "Cristiano Ronaldo", "Robert Lewandowski", "Karim Benzema"))
 
 if pregunta2:
@@ -107,7 +107,7 @@ if pregunta2:
         st.write("Incorrecto. La respuesta correcta es Lionel Messi.")
 
 # Pregunta 3
-pregunta3 = st.selectbox("¿Cual es la seleccion con mas copas del mundo?", 
+pregunta3 = st.radio("¿Cual es la seleccion con mas copas del mundo?", 
                           ("Brasil", "España", "Francia", "Alemania"))
 
 if pregunta3:
