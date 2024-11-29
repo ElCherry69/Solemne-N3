@@ -21,7 +21,7 @@ def set_background_image(image_url):
         unsafe_allow_html=True
     )
 
-set_background_image('https://imageio.forbes.com/specials-images/imageserve/65be17cb80f5c798a03e7762/0x0.jpg?format=jpg&height=600&width=1200&fit=bounds')
+set_background_image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2j0RUMxfvheryca_KrIcydol9OSWVfhEESQ&s')
 
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
