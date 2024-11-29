@@ -27,7 +27,7 @@ set_background_image('https://wallpapers.com/images/hd/uefa-champions-league-int
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
 ucl_data = pd.read_csv('UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv')
-ucl_finals_data = pd.read_csv('UCL_Finals_1955-2023 - UCL_Finals_1955-2023.csv')
+ucl_finals_data = pd.read_csv('UCL_Finals_1955-2023.csv')  # Asegúrate de que la ruta sea correcta
 
 with st.sidebar:
     with st.expander("SOBRE QUÉ", expanded=False):
@@ -73,12 +73,8 @@ if search_title:
                                   labels={'Score': 'Goles', 'Year': 'Año'}, markers=True)
                     st.plotly_chart(fig)  # Mostrar el gráfico interactivo
 
-# Caja de comentarios
-st.subheader("Hablemos de futbol⚽")
-comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=100)
-
-if st.button("Enviar Comentario"):
-    if comment:
-        st.success("Comentario enviado con éxito!")
-    else:
-        st.warning("Por favor, escribe un comentario antes de enviar.")
+            # Gráfico de rendimiento de equipos en UCL Finals
+            if title == "UCL Finals":
+                st.subheader("Gráfico de Rendimiento en UCL Finals")
+                # Extraer el año de la columna 'Season' y agrupar por año y ganadores
+                ucl_finals_data['Year'] = ucl_f
