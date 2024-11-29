@@ -29,7 +29,7 @@ ucl_data = pd.read_csv('UCL_AllTime_Performance_Table - UCL_Alltime_Performance_
 ucl_finals_data = pd.read_csv('UCL_Finals_1955-2023 - UCL_Finals_1955-2023.csv')
 
 with st.sidebar:
-    with st.expander("¿De que se trata esta APP?", expanded=False):
+    with st.expander("SOBRE QUÉ", expanded=False):
         st.write(('Esta aplicación se basa en la cultura del fútbol y un poco del conocimiento que se tiene hasta la fecha sobre él. '
                    'Hablándoles un poco sobre estadísticas de grandes equipos, jugadores que han logrado alzar el Balón de Oro y '
                    'países que levantaron la copa más preciada del mundo "La Copa del Mundo".'))
@@ -76,15 +76,44 @@ if search_title:
         if not ucl_finals_data.empty:
             # Agrupar por 'Winners' y contar el número de títulos
             titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
-            titles_summary.columns = ['Equipo', 'Total de Títulos']
+            titles_summary.columns = [' Equipo', 'Total de Títulos']
             
-            # # Mostrar la tabla de resumen
+            # Mostrar la tabla de resumen
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
-st.subheader("Quiz de futbol")
+st.subheader("Comparar Equipos")
 
-with st.expander("¿Estas list@?", expanded=False):
+# Selección de equipos para comparar
+equipo1 = st.selectbox("Selecciona el primer equipo", ucl_data['Winners'].unique())
+equipo2 = st.selectbox("Selecciona el segundo equipo", ucl_data['Winners'].unique())
+
+if st.button("Comparar"):
+    # Filtrar datos para los equipos seleccionados
+    equipo1_data = ucl_data[ucl_data['Winners'] == equipo1]
+    equipo2_data = ucl_data[ucl_data['Winners'] == equipo2]
+
+    if not equipo1_data.empty and not equipo2_data.empty:
+        st.subheader(f"Comparación entre {equipo1} y {equipo2}")
+
+        # Mostrar estadísticas de los equipos
+        st.write(f"Total de títulos de {equipo1}: {equipo1_data.shape[0]}")
+        st.write(f"Total de títulos de {equipo2}: {equipo2_data.shape[0]}")
+
+        # Gráfico de comparación
+        comparison_data = pd.DataFrame({
+            'Equipo': [equipo1, equipo2],
+            'Total de Títulos': [equipo1_data.shape[0], equipo2_data.shape[0]]
+        })
+
+        fig = px.bar(comparison_data, x='Equipo', y='Total de Títulos', title='Comparación de Títulos de Equipos',
+                     labels={'Total de Títulos': 'Número de Títulos', 'Equipo': 'Equipos'})
+        st.plotly_chart(fig)
+    else:
+        st.warning("No se encontraron datos para uno o ambos equipos seleccionados.") ```python
+st.subheader("Preguntas y Respuestas")
+
+with st.expander("Haz clic para ver las preguntas", expanded=False):
     pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
                           ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"), key="pregunta1")
 
