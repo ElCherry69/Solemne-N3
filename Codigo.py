@@ -83,10 +83,10 @@ if search_title:
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
-# Sección de preguntas
+
 st.subheader("Preguntas y Respuestas")
 
-# Pregunta 1
+
 pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
                       ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"))
 
@@ -96,7 +96,7 @@ if pregunta1:
     else:
         st.write("Incorrecto. La respuesta correcta es Real Madrid.")
 
-# Pregunta 2
+
 pregunta2 = st.radio("¿Quién ganó el Balón de Oro en 2021?", 
                           ("Karim Benzema", "Cristiano Ronaldo", "Robert Lewandowski", "Lionel Messi"))
 
@@ -106,7 +106,7 @@ if pregunta2:
     else:
         st.write("Incorrecto. La respuesta correcta es Lionel Messi.")
 
-# Pregunta 3
+
 pregunta3 = st.radio("¿Cual es la seleccion con mas copas del mundo?", 
                           ("Brasil", "España", "Francia", "Alemania"))
 
