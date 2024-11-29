@@ -50,7 +50,7 @@ with st.sidebar:
         equipo1 = st.sidebar.selectbox("Selecciona el primer equipo", winners)
         equipo2 = st.sidebar.selectbox("Selecciona el segundo equipo", winners)
 
-        if st.sidebar.button("Generar Resultado Aleatorio"):
+        if st.sidebar.button("Generar Resultado "):
             # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
             score1 = random.randint(0, 5)
             score2 = random.randint(0, 5)
