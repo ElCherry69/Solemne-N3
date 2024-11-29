@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px  # Importar plotly.express
+import random  # Importar random para seleccionar ganadores aleatorios
 
 st.title("FUSHIBALL")
 
@@ -78,9 +79,20 @@ if search_title:
             titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
             titles_summary.columns = ['Equipo', 'Total de Títulos']
             
-            # Mostrar la tabla de resumen
+ # Mostrar la tabla de resumen
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
+
+# Generador de resultados aleatorios
+st.subheader("Generador de Resultados Aleatorios de UCL")
+
+# Asegúrate de que la columna de ganadores se llama 'Winners'
+winners = ucl_finals_data['Winners'].unique().tolist()
+
+if st.button("Generar Resultado Aleatorio"):
+    # Seleccionar un ganador aleatorio
+    random_winner = random.choice(winners)
+    st.write(f"¡El ganador aleatorio de la UCL es: **{random_winner}**!")
 
 st.subheader("Preguntas y Respuestas")
 
@@ -146,7 +158,7 @@ if st.button("Mostrar Galería de Imágenes"):
         st.image(img["url"], caption=img["descripcion"], use_column_width=True)
         st.write("---")  # Línea divisoria entre imágenes
 
-st.subheader("Hablemos de fútbol⚽")
+st.subheader("H ablemos de fútbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80, key="comment")
 
 if st.button("Enviar Comentario"):
