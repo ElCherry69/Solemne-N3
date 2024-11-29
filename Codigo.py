@@ -127,15 +127,15 @@ st.subheader("Galería de Imágenes")
 imagenes = [
     {
         "url": "https://ovaciones.com/wp-content/uploads/2022/12/pele-campeonn.jpg",  # Reemplaza con la URL de tu imagen
-        "descripcion": "Descripción de la imagen 1."
+        "descripcion": "Pele disputaba su primera final a la edad de 22 años ante Suecia donde el partido quedo 5-2.Pelé marcó dos golazos, uno inolvidable con aquel famoso sombrero que paró el tiempo en el estadio Rasunda de Solna. Coronandose por primera vez"
     },
     {
-        "url": "https://example.com/image2.jpg",  # Reemplaza con la URL de tu imagen
-        "descripcion": "Descripción de la imagen 2."
+        "url": "https://th.bing.com/th/id/OIP.I-ri4dcMm_fcku_zrM8_-gHaEl?rs=1&pid=ImgDetMain.jpg", 
+        "descripcion": "Un partido sin publico.El 12 de Marzo del años 2022 se enfrento el Barcelona contra el PSG, un partido que dejo a todos con la boca callada ya que se jugaba sin publico por culpa de la pandia."
     },
     {
-        "url": "https://example.com/image3.jpg",  # Reemplaza con la URL de tu imagen
-        "descripcion": "Descripción de la imagen 3."
+        "url": "https://www.clarin.com/img/2021/12/19/dfCWMdEiZ_1256x620__1.jpg",  # Reemplaza con la URL de tu imagen
+        "descripcion": "El 19 de Diciembre de 1863 se disputó el primer partido de fútbol en la historia. Un encuentro que enfrentó al Barnes Football Club contra el Richmond Football Club, y que terminó con un resultado final de 0-0. El partido se disputó en Limes Field, barrio de Mortlake, situado a las afueras de Londres, Inglaterra.."
     },
     # Agrega más imágenes según sea necesario
 ]
