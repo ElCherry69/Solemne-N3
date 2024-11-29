@@ -77,10 +77,10 @@ if search_title:
         if not ucl_finals_data.empty:
             # Agrupar por 'Winners' y contar el número de títulos
             titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
-            titles _summary.columns = ['Equipo', 'Total de Títulos']
+            titles_summary.columns = ['Equipo', 'Total de Títulos']
             
             # Mostrar la tabla de resumen
-            st.subheader("Palmarés Histórico De La Champions League")
+            st .subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
 # Generador de resultados aleatorios entre dos equipos
