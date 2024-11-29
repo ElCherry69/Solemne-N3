@@ -39,7 +39,7 @@ with st.sidebar:
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
 # Generador de resultados aleatorios entre dos equipos
-st.subheader("Generador de Resultados Aleatorios entre Dos Equipos")
+st.sidebar("¿Quien gana?")
 
 # Asegúrate de que la columna de ganadores se llama 'Winners'
 winners = ucl_finals_data['Winners'].unique().tolist()
@@ -48,7 +48,7 @@ winners = ucl_finals_data['Winners'].unique().tolist()
 equipo1 = st.selectbox("Selecciona el primer equipo", winners)
 equipo2 = st.selectbox("Selecciona el segundo equipo", winners)
 
-if st.button("Generar Resultado Aleatorio"):
+if st.button("Generar Resultado"):
     # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
     score1 = random.randint(0, 5)
     score2 = random.randint(0, 5)
