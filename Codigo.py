@@ -84,7 +84,7 @@ if search_title:
             st.dataframe(titles_summary)
 
 # Sección de preguntas
-st.subheader("Preguntas de Fútbol")
+with st.expander("Preguntas de Fútbol", expanded=False):
 
 # Pregunta 1
 pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
@@ -120,7 +120,7 @@ if pregunta3:
 pregunta4 = st.radio("¿Quien es el amximo goleador de la historia del futbol?", 
                           ("Armando Maradona", "Cristian Ronaldo", "Eduardo Vargas", "Pele"))
 
-if pregunta3:
+if pregunta4:
     if pregunta4 == "Pele":
         st.write("¡Correcto! Pele es el unico jugador con 1200 goles en la historia, convirtiendolo en el goleador maximo de todos los tiempos")
     else:
