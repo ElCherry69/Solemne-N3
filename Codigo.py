@@ -150,7 +150,7 @@ if st.button("Momentos"):
     
     for img in imagenes:
         st.image(img["url"], caption=img["descripcion"], use_column_width=True)
-        st.write("---")  # Línea divisoria entre imágenes
+        st.write("---")  
 
 st.subheader("Hablemos de fútbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80, key="comment")
