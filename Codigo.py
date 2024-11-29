@@ -76,23 +76,29 @@ if search_title:
     if st.sidebar.button('Mostrar Palmarés Histórico de la Champions League'):
         if not ucl_finals_data.empty:
             # Agrupar por 'Winners' y contar el número de títulos
-            titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
+            titles_summary ```python
+            = ucl_finals_data['Winners'].value_counts().reset_index()
             titles_summary.columns = ['Equipo', 'Total de Títulos']
             
- # Mostrar la tabla de resumen
+            # Mostrar la tabla de resumen
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
-# Generador de resultados aleatorios
-st.subheader("Generador de Resultados Aleatorios de UCL")
+# Generador de resultados aleatorios entre dos equipos
+st.subheader("Generador de Resultados Aleatorios entre Dos Equipos")
 
 # Asegúrate de que la columna de ganadores se llama 'Winners'
 winners = ucl_finals_data['Winners'].unique().tolist()
 
+# Seleccionar dos equipos
+equipo1 = st.selectbox("Selecciona el primer equipo", winners)
+equipo2 = st.selectbox("Selecciona el segundo equipo", winners)
+
 if st.button("Generar Resultado Aleatorio"):
-    # Seleccionar un ganador aleatorio
-    random_winner = random.choice(winners)
-    st.write(f"¡El ganador aleatorio de la UCL es: **{random_winner}**!")
+    # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
+    score1 = random.randint(0, 5)
+    score2 = random.randint(0, 5)
+    st.write(f"¡El resultado del partido entre **{equipo1}** y **{equipo2}** es: **{score1} - {score2}**!")
 
 st.subheader("Preguntas y Respuestas")
 
@@ -158,7 +164,7 @@ if st.button("Mostrar Galería de Imágenes"):
         st.image(img["url"], caption=img["descripcion"], use_column_width=True)
         st.write("---")  # Línea divisoria entre imágenes
 
-st.subheader("H ablemos de fútbol⚽")
+st.subheader("Hablemos de fútbol⚽")
 comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80, key="comment")
 
 if st.button("Enviar Comentario"):
