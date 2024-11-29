@@ -83,7 +83,7 @@ if search_title:
             st.dataframe(titles_summary)
 
 st.subheader("Preguntas y Respuestas")
-
+with st.expander("Haz clic para ver las preguntas", expanded=False):
 pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
                       ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"), key="pregunta1")
 
