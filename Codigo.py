@@ -21,7 +21,7 @@ def set_background_image(image_url):
         unsafe_allow_html=True
     )
 
-set_background_image('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2j0RUMxfvheryca_KrIcydol9OSWVfhEESQ&s')
+set_background_image('https://aventurasenuruguay.net/wp-content/uploads/estadio-lleno-rivalidad-intensa.webp')
 
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
