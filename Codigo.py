@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px  # Importar plotly.express
-import random  # Importar random para seleccionar ganadores aleatorios
+import plotly.express as px
+import random 
 
 st.title("FUSHIBALL")
 
@@ -23,7 +23,6 @@ def set_background_image(image_url):
 
 set_background_image('https://wallpapers.com/images/hd/uefa-champions-league-intergalactic-stadium-2mxl696eobodolq3.jpg')
 
-# Carga de datos
 ballon_dor_data = pd.read_csv('BallonDor-GoldenBall_Winners_v2.csv')
 world_cup_data = pd.read_csv('FIFA - World Cup Summary.csv')
 ucl_data = pd.read_csv('UCL_AllTime_Performance_Table - UCL_Alltime_Performance_Table.csv')
@@ -38,27 +37,17 @@ with st.sidebar:
     st.sidebar.header("Opciones de Filtro")
     search_title = st.sidebar.text_input("JUGADOR, EQUIPO o PAIS")
 
-# Generador de resultados aleatorios entre dos equipos
 st.subheader("¿Quien gana?")
-
-# Asegúrate de que la columna de ganadores se llama 'Winners'
 winners = ucl_finals_data['Winners'].unique().tolist()
-
-# Seleccionar dos equipos
 equipo1 = st.selectbox("Selecciona el primer equipo", winners)
 equipo2 = st.selectbox("Selecciona el segundo equipo", winners)
-
 if st.button("Generar Resultado"):
-    # Generar un resultado aleatorio entre 0 y 5 para ambos equipos
     score1 = random.randint(0, 5)
     score2 = random.randint(0, 5)
     st.write(f"¡El resultado del partido entre **{equipo1}** y **{equipo2}** es: **{score1} - {score2}**!")
-
-
-# Botón para mostrar enlace
+    
 if st.sidebar.button('El mejor jugador del mundo👑'):
-    st.sidebar.markdown('[!!LIONEL ANDRES MESSI HERE¡¡](https://www.afa.com.ar/es/posts/premios-the-best-lionel-messi-el-mejor-jugador-del-mundo)')  # Cambia el enlace aquí
-
+    st.sidebar.markdown('[!!LIONEL ANDRES MESSI HERE¡¡](https://www.afa.com.ar/es/posts/premios-the-best-lionel-messi-el-mejor-jugador-del-mundo)')
 def search_data(query):
     results = {
         "Balón de Oro": ballon_dor_data[ballon_dor_data.apply(lambda row: row.astype(str).str.contains(query, case=False).any(), axis=1)],
@@ -96,7 +85,6 @@ if search_title:
             titles_summary = ucl_finals_data['Winners'].value_counts().reset_index()
             titles_summary.columns = ['Equipo', 'Total de Títulos']
             
-            # Mostrar la tabla de resumen
             st.subheader("Palmarés Histórico De La Champions League")
             st.dataframe(titles_summary)
 
@@ -139,11 +127,10 @@ with st.expander("¡Estas list@?", expanded=False):
         else:
             st.write("Incorrecto. La respuesta correcta es Pelé.")
 
-# Botón para mostrar la galería de imágenes
 if st.button("Momentos"):
     st.subheader("Momentos Iconicos Del Futbol")
 
-    # Definir una lista de imágenes y sus descripciones
+
     imagenes = [
         {
             "url": "https://ovaciones.com/wp-content/uploads/2022/12/pele-campeonn.jpg",  
@@ -159,7 +146,7 @@ if st.button("Momentos"):
         },
     ]
 
-    # Mostrar las imágenes y sus descripciones
+    
     for img in imagenes:
         st.image(img["url"], caption=img["descripcion"], use_column_width=True)
         st.write("---")  # Línea divisoria entre imágenes
