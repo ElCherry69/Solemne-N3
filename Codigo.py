@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import plotly.express as px  # Importar plotly.express
 
 st.title("FUSHIBALL")
@@ -80,15 +79,13 @@ if search_title:
             titles_summary.columns = ['Equipo', 'Total de Títulos']
             
             # Mostrar la tabla de resumen
-            st.subheader("Palmarés Histórico De La Champions League")
+            st.subheader("Palmar és Histórico De La Champions League")
             st.dataframe(titles_summary)
-
 
 st.subheader("Preguntas y Respuestas")
 
-
 pregunta1 = st.radio("¿Cuál es el equipo con más títulos en la Champions League?", 
-                      ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"))
+                      ("AC Milan", "Real Madrid", "Liverpool", "Barcelona"), key="pregunta1")
 
 if pregunta1:
     if pregunta1 == "Real Madrid":
@@ -96,9 +93,8 @@ if pregunta1:
     else:
         st.write("Incorrecto. La respuesta correcta es Real Madrid.")
 
-
 pregunta2 = st.radio("¿Quién ganó el Balón de Oro en 2021?", 
-                          ("Karim Benzema", "Cristiano Ronaldo", "Robert Lewandowski", "Lionel Messi"))
+                      ("Karim Benzema", "Cristiano Ronaldo", "Robert Lewandowski", "Lionel Messi"), key="pregunta2")
 
 if pregunta2:
     if pregunta2 == "Lionel Messi":
@@ -106,39 +102,26 @@ if pregunta2:
     else:
         st.write("Incorrecto. La respuesta correcta es Lionel Messi.")
 
-
-pregunta3 = st.radio("¿Cual es la seleccion con mas copas del mundo?", 
-                          ("Brasil", "España", "Francia", "Alemania"))
+pregunta3 = st.radio("¿Cuál es la selección con más copas del mundo?", 
+                      ("Brasil", "España", "Francia", "Alemania"), key="pregunta3")
 
 if pregunta3:
     if pregunta3 == "Brasil":
-        st.write("¡Correcto! Brasil con un total de cinco Copas del Mundo, es la selección de fútbol con más Mundiales")
+        st.write("¡Correcto! Brasil con un total de cinco Copas del Mundo, es la selección de fútbol con más Mundiales.")
     else:
         st.write("Incorrecto. La respuesta correcta es Brasil.")
 
-
-pregunta4 = st.radio("¿Quien es el amximo goleador de la historia del futbol?", 
-                          ("Armando Maradona", "Cristian Ronaldo", "Eduardo Vargas", "Pele"))
+pregunta4 = st.radio("¿Quién es el máximo goleador de la historia del fútbol?", 
+                      ("Armando Maradona", "Cristiano Ronaldo", "Eduardo Vargas", "Pelé"), key="pregunta4")
 
 if pregunta4:
-    if pregunta4 == "Pele":
-        st.write("¡Correcto! Pele es el unico jugador con 1200 goles en la historia, convirtiendolo en el goleador maximo de todos los tiempos")
+    if pregunta4 == "Pelé":
+        st.write("¡Correcto! Pelé es el único jugador con 1200 goles en la historia, convirtiéndolo en el goleador máximo de todos los tiempos.")
     else:
-        st.write("Incorrecto. La respuesta correcta es Pele.")
+        st.write("Incorrecto. La respuesta correcta es Pelé.")
 
-        
-st.subheader("Hablemos de futbol⚽")
-comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80)
-
-if st.button("Enviar Comentario"):
-    if comment:
-        st.success("Comentario enviado con éxito!")
-    else:
-        st.warning("Por favor, escribe un comentario antes de enviar.")
-
-# Caja de comentarios
-st.subheader("Hablemos de futbol⚽")
-comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80)
+st.subheader("Hablemos de fútbol⚽")
+comment = st.text_area("Deja tu comentario o pensamiento aquí:", height=80, key="comment")
 
 if st.button("Enviar Comentario"):
     if comment:
