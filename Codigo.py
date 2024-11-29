@@ -10,7 +10,7 @@ def set_background_image(image_url):
         f"""
         <style>
         .stApp {{
-            background-image: url({image_url});
+            background-image: url({https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.forbes.com%2Fsites%2Ftomsanderson%2F2024%2F11%2F19%2Freal-madrid-open-to-selling-105-million-star-with-premier-league-interest-reports-ok-diario%2F&psig=AOvVaw0mSowgnLDPJLmrsORfk8bP&ust=1732979018491000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNiT-8_0gYoDFQAAAAAdAAAAABAE});
             background-size: cover;  /* Ajusta la imagen para cubrir todo el fondo */
             background-position: center;  /* Centra la imagen */
             background-repeat: no-repeat;  /* Evita que la imagen se repita */
